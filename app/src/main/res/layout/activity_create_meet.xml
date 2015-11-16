@@ -5,11 +5,11 @@
     android:background="@color/bg_register">
 
     <TextView
-        android:text="Let's Create a Meeting"
+        android:text="Create a Meeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:id="@+id/textView2" />

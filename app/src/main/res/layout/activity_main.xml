@@ -2,13 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_register"
+    android:background="@color/white"
     tools:context="${relativePackage}.${activityClass}">
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:text="@string/welcome"
         android:textColor="@color/white"
@@ -62,18 +63,18 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="15dp" />
-   <!-- <Button
-        android:id="@+id/schedule"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:background="@color/bg_main"
-        android:text="@string/btn_scheduleMeet"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="15dp"
-        android:layout_below="@+id/mySchedule"
-        android:layout_alignParentStart="true" />-->
+    <!-- <Button
+         android:id="@+id/schedule"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="42dp"
+         android:background="@color/bg_main"
+         android:text="@string/btn_scheduleMeet"
+         android:textAllCaps="false"
+         android:textColor="@color/white"
+         android:textSize="15dp"
+         android:layout_below="@+id/mySchedule"
+         android:layout_alignParentStart="true" />-->
 
     <Button
         android:id="@+id/btnLogout"
@@ -84,9 +85,23 @@
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="15dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/mySchedule"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="44dp" />
+        android:layout_marginTop="37dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="+"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:background="@drawable/roundbutton"
+        android:id="@+id/mainButton"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

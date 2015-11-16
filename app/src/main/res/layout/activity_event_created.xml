@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="@string/event_created"
         android:textColor="@color/white"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />

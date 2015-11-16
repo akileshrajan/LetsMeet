@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/freeTimeinitiatorschedule"
+    android:orientation="vertical"
+    android:background="@color/bg_register"
+    tools:context="${relativePackage}.${activityClass}">
+
+
+    <ListView
+        android:id="@+id/list_freetime"
+        android:cacheColorHint="#CCBBFFFF"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fadingEdge="none"
+        android:background="@color/white"
+        android:divider="@color/bg_register"
+        android:dividerHeight="2.0sp">
+
+    </ListView>
+
+
+
+
+</RelativeLayout>

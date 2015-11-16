@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/freeTime_rows"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_row_selector"
+    android:padding="8dp">
+
+    <!-- Meeting Name -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title"
+        android:textStyle="bold" />
+
+    <!-- Meeting Location -->
+    <TextView
+        android:id="@+id/meetingLocation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="1dip"
+        android:textSize="@dimen/rating" />
+
+    <!-- Meeting Date -->
+    <TextView
+        android:id="@+id/meetingDate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/meetingLocation"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/year" />
+    <!-- Meeting Date -->
+    <TextView
+        android:id="@+id/meetingTime"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/meetingDate"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/year" />
+
+    <!--Schedule Button-->
+    <ScrollView
+        android:id="@+id/participantsScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/meetingTime"
+        android:layout_centerHorizontal="false"
+        >
+
+        <TextView
+
+            android:id="@+id/participants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/meetingDate"
+            android:layout_centerHorizontal="false"
+            android:textSize="@dimen/year" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/meetingLocation"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:padding="5pt"
+        android:text="Schedule"
+        android:textColor="@color/lbl_name" />
+
+
+</RelativeLayout>

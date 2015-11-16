@@ -3,16 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/input_login_hint"
     tools:context=".MainActivity">
-
-
 
     <com.utase1.letsmeet.helper.SlidingTabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="2dp"
-        android:background="@color/bg_register"/>
+       />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
@@ -22,5 +21,20 @@
         android:layout_weight="1"
         android:background="@color/input_login_hint"
         />
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="+"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:background="@drawable/roundbutton"
+        android:id="@+id/mainButton"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="right" />
+
 
 </LinearLayout>

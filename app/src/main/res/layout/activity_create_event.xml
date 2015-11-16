@@ -5,11 +5,11 @@
 
 
     <TextView
-        android:text="Let's Create a Event"
+        android:text="Create a Event"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:id="@+id/event_text" />
