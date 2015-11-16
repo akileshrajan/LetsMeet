@@ -210,14 +210,14 @@ public class GenerateFreeCommonTime extends Activity {
     private void addTimeValue(TimeParticipantMap freeParticipant) {
         tr = new TableRow(this);
         timeslot = new TextView(this);
-        if (freeParticipant.getTimeSlot()+1 > 12)
+        if (freeParticipant.getTimeSlot() > 12)
         {
             timeslot.setText(freeParticipant.getTimeSlot()+1 + "PM");
             timeslot.setTextColor(getResources().getColor(android.R.color.white));
         }
         else
         {
-            timeslot.setText(freeParticipant.getTimeSlot() +1 + "AM");
+            timeslot.setText(freeParticipant.getTimeSlot()+"AM");
             timeslot.setTextColor(getResources().getColor(android.R.color.white));
         }
 

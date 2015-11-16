@@ -28,7 +28,7 @@ public class MeetingCreated extends AppCompatActivity {
 
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(),
-                        MainActivity.class);
+                        MySchedule.class);
                 startActivity(i);
                 finish();
             }

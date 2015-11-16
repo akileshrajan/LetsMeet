@@ -326,7 +326,7 @@ public class CalendarActivity extends Activity {
                     registerFreeCalTime(Meetname, opList[1], opList[2], Mail);
                 }
             }
-            Intent myIntent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent myIntent = new Intent(getApplicationContext(), MySchedule.class);
             //myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(myIntent);
         }

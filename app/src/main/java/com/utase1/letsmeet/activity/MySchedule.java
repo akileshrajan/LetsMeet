@@ -1,11 +1,20 @@
 package com.utase1.letsmeet.activity;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.PopupMenu;
+import android.widget.PopupMenu.OnMenuItemClickListener;
+import android.widget.Toast;
+import android.widget.PopupMenu;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
-
+import com.utase1.letsmeet.activity.*;
 import com.utase1.letsmeet.app.AppConfig;
 import com.utase1.letsmeet.app.AppController;
 import com.utase1.letsmeet.helper.SQLiteHandler;
@@ -15,7 +24,7 @@ import com.utase1.letsmeet.helper.ViewPagerAdapter;
 import com.utase1.letsmeet.helper.SlidingTabLayout;
 
 
-public class MySchedule extends ActionBarActivity {
+public class MySchedule extends ActionBarActivity implements PopupMenu.OnMenuItemClickListener {
 
     // Declaring Your View and Variables
 
@@ -25,12 +34,24 @@ public class MySchedule extends ActionBarActivity {
     SlidingTabLayout tabs;
     CharSequence Titles[]={"Accepted","Pending", "My Meeting"};
     int Numboftabs =3;
+    private SQLiteHandler db;
+    private SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_myschedule);
 
+        findViewById(R.id.mainButton).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popupMenu = new PopupMenu(MySchedule.this, view);
+                popupMenu.setOnMenuItemClickListener(MySchedule.this);
+                popupMenu.inflate(R.menu.mainmenu);
+                popupMenu.show();
+            }
+        });
 
 
 
@@ -55,13 +76,50 @@ public class MySchedule extends ActionBarActivity {
         });
 
         // Setting the ViewPager For the SlidingTabsLayout
+
         tabs.setViewPager(pager);
+
 
 
 
     }
 
 
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.create_meeting:
+                Intent i = new Intent(MySchedule.this,
+                        CreateMeeting.class);
+                startActivity(i);
+                finish();
+                return true;
+            case R.id.create_event:
+                Intent i1 = new Intent(MySchedule.this,
+                        CreateEvent.class);
+                startActivity(i1);
+                finish();
+                case R.id.logout:
+                    db = new SQLiteHandler(getApplicationContext());
+
+                    // session manager
+                    session = new SessionManager(getApplicationContext());
+                    session.setLogin(false);
+
+                    db.deleteUsers();
+
+                    // Launching the login activity
+                    Intent intent = new Intent(MySchedule.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+
+
+
+
+
+        }
+        return true;
+    }
 
 }
 

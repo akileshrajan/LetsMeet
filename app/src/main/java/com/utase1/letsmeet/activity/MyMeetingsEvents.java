@@ -2,11 +2,13 @@ package com.utase1.letsmeet.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ import com.utase1.letsmeet.app.AppController;
 import com.utase1.letsmeet.dto.DataWrapper;
 import com.utase1.letsmeet.dto.ParticipantDetails;
 import com.utase1.letsmeet.dto.TimeParticipantMap;
+import com.utase1.letsmeet.helper.CustomScheduleAdapter;
 import com.utase1.letsmeet.helper.ScheduleTime;
 
 import com.utase1.letsmeet.R;
@@ -29,6 +32,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -44,6 +48,11 @@ public class MyMeetingsEvents extends AppCompatActivity {
     private Button btnProceed;
     private Button btnPrevious;
     private TextView meetParticipants;
+    private ListView freeTimeList;
+    String meetNameValue;
+    String meetLocationValue;
+    String meetDateValue;
+
 
     ArrayList<ParticipantDetails> partList = new ArrayList<ParticipantDetails>();
     private ProgressDialog pDialog;
@@ -70,8 +79,9 @@ public class MyMeetingsEvents extends AppCompatActivity {
 
         final Bundle extras = getIntent().getExtras();
         meet_id = extras.getString("meet_id");
-
-
+        meetNameValue=extras.getString("meet_name");
+        meetLocationValue=extras.getString("meet_location");
+        meetDateValue=extras.getString("meet_date");
         meetName.setText(extras.getString("meet_name"));
         meetLocation.setText(extras.getString("meet_location"));
         meetDate.setText(extras.getString("meet_date"));
@@ -101,9 +111,15 @@ public class MyMeetingsEvents extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+    }
+
     private void createData(final String meetingId) {
         // Tag used to cancel the request
         String tag_string_req = "req_login";
+
 
         pDialog.setMessage("Getting users and their free time data  ...");
         showDialog();
@@ -139,6 +155,7 @@ public class MyMeetingsEvents extends AppCompatActivity {
 
                         }
                         calculateFreeTime();
+
                     }
 
                     else {
@@ -184,16 +201,21 @@ public class MyMeetingsEvents extends AppCompatActivity {
     private void calculateFreeTime() {
         if (partList != null && partList.size() > 0) {
             ScheduleTime scheduleTest=new ScheduleTime();
-            ArrayList<TimeParticipantMap> commonFreeTime= scheduleTest.getFreeTime(partList);
-            Intent intent = new Intent(MyMeetingsEvents.this, GenerateFreeCommonTime.class);
+            List<TimeParticipantMap> commonFreeTime= scheduleTest.getFreeTime(partList);
+            setContentView(R.layout.activity_scheduling_initiator);
+            freeTimeList = (ListView) findViewById(R.id.list_freetime);
+            FreeTimeSchedulerInitiator freeTimeSchedulerInitiator=new FreeTimeSchedulerInitiator(MyMeetingsEvents.this,R.layout.freetimeschedulerows,  commonFreeTime,meetNameValue,meetDateValue,meetLocationValue);
+            freeTimeList.setAdapter(freeTimeSchedulerInitiator);
+            freeTimeSchedulerInitiator.notifyDataSetChanged();
+         /*   Intent intent = new Intent(MyMeetingsEvents.this, GenerateFreeCommonTime.class);
             Bundle bundleObject = new Bundle();
             bundleObject.putSerializable("finalParticipants", new DataWrapper(commonFreeTime));
             intent.putExtras(bundleObject);
-            MyMeetingsEvents.this.startActivity(intent);
+            MyMeetingsEvents.this.startActivity(intent);*/
             //intent.putExtra("finalParticipants", new DataWrapper(finalParticipants));
             //   intent.putExtra("finalParticipants", finalParticipants);
 
-            finish();
+          //  finish();
         }
 
 

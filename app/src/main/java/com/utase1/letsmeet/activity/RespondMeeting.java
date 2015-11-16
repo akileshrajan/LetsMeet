@@ -155,7 +155,7 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
                 String toTime = txtTimeto.getText().toString().trim();
 
                 registerFreeUserTime(meetName,fromTime,toTime,txtEmail);
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                Intent i = new Intent(getApplicationContext(), MySchedule.class);
                 startActivity(i);
             }
         });

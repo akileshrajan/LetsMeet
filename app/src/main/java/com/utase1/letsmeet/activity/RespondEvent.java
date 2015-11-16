@@ -89,7 +89,7 @@ public class RespondEvent extends AppCompatActivity {
                 String eventDate = _eventDate.getText().toString().trim();
 
                 userRespondEvent(eventName, eventTime, eventDate, txtemail, status);
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                Intent i = new Intent(getApplicationContext(), MySchedule.class);
                 startActivity(i);
             }
         });
@@ -103,7 +103,7 @@ public class RespondEvent extends AppCompatActivity {
                 String eventDate = _eventDate.getText().toString().trim();
 
                 userRespondEvent(eventName, eventTime, eventDate, txtemail, status);
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                Intent i = new Intent(getApplicationContext(), MySchedule.class);
                 startActivity(i);
             }
         });

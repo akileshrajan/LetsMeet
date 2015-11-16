@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import org.json.JSONArray;
@@ -170,6 +171,7 @@ public class AcceptedTab extends Fragment {
                 vSchedule = (ListView) getActivity().findViewById(R.id.lstAccepted);
                 CustomAcceptedAdapter cta = new CustomAcceptedAdapter(getActivity(), R.layout.accepted_rows,lst);
                 vSchedule.setAdapter(cta);
+
                 cta.notifyDataSetChanged();
 
 
