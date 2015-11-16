@@ -48,18 +48,24 @@ public class ScheduleTime {
 					}
 
 				}
-				 timeParticipantMap = new TimeParticipantMap(
-						partListForTime,countFreeTime, j);
-				finalFreeCommonTime.add(timeParticipantMap.getTimeSlot());
-				timeParticipantMaps.add(timeParticipantMap);
+				if(countFreeTime>=1)
+				{
+					timeParticipantMap = new TimeParticipantMap(
+							partListForTime,j+1,countFreeTime);
+					finalFreeCommonTime.add(countFreeTime);
+					timeParticipantMaps.add(timeParticipantMap);
+
+				}
+
 
 			}
+
 			int maximum = Collections.max(finalFreeCommonTime);
 			System.out.println(maximum);
 			 timeParticipantMapsNew = new ArrayList<TimeParticipantMap>();
 			for (int i = 0; i < timeParticipantMaps.size(); i++) {
 
-				if (timeParticipantMaps.get(i).getTimeSlot() == maximum) {
+				if (timeParticipantMaps.get(i).getMaxParticipants() == maximum) {
 					timeParticipantMapsNew.add(timeParticipantMaps.get(i));
 				}
 			}

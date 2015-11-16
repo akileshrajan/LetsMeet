@@ -8,30 +8,19 @@ package com.utase1.letsmeet.helper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Rating;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import java.util.ArrayList;
+
 import java.util.List;
 
-import com.utase1.letsmeet.activity.InitiatorSchedule;
-import com.utase1.letsmeet.activity.MainActivity;
 import com.utase1.letsmeet.activity.MyMeetingsEvents;
-import com.utase1.letsmeet.app.AppConfig;
-import com.utase1.letsmeet.app.AppController;
-import com.utase1.letsmeet.helper.SQLiteHandler;
-import com.utase1.letsmeet.helper.SessionManager;
 import com.utase1.letsmeet.Model.scheduleModel;
 import com.utase1.letsmeet.R;
-
-import org.w3c.dom.Text;
 
 public class CustomScheduleAdapter extends ArrayAdapter {
 
