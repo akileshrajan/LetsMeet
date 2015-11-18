@@ -99,6 +99,7 @@ public class MySchedule extends ActionBarActivity implements PopupMenu.OnMenuIte
                         CreateEvent.class);
                 startActivity(i1);
                 finish();
+                return true;
                 case R.id.logout:
                     db = new SQLiteHandler(getApplicationContext());
 
@@ -112,6 +113,7 @@ public class MySchedule extends ActionBarActivity implements PopupMenu.OnMenuIte
                     Intent intent = new Intent(MySchedule.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
+                    return true;
 
 
 
