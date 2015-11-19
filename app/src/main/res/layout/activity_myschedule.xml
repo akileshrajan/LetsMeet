@@ -19,12 +19,11 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:layout_weight="1"
-        android:background="@color/input_login_hint"
         />
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:text="+"
         android:textSize="30sp"
         android:textColor="@color/white"
