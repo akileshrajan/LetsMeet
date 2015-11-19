@@ -40,7 +40,19 @@ public class MySchedule extends ActionBarActivity implements PopupMenu.OnMenuIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // SQLite database handler
+        db = new SQLiteHandler(getApplicationContext());
 
+        // Session manager
+        session = new SessionManager(getApplicationContext());
+
+        // Check if user is already logged in or not
+        if (!session.isLoggedIn()) {
+            // User is already logged in. Take him to main activity
+            Intent intent = new Intent(MySchedule.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
         setContentView(R.layout.activity_myschedule);
 
         findViewById(R.id.mainButton).setOnClickListener(new OnClickListener() {
