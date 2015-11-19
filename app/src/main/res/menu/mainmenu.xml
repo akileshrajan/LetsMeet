@@ -13,10 +13,7 @@
         android:id="@+id/logout"
         android:title="Log Out"
         android:visible="true"/>
-    <item
-        android:id="@+id/map"
-        android:title="map"
-        android:visible="true"/>
+
 
 
 </menu>
