@@ -4,6 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/list_row_selector"
+
     android:padding="8dp">
 
     <!-- Meeting Name -->
@@ -12,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/title"
+        android:textColor="@android:color/black"
         android:textStyle="bold" />
 
     <!-- Meeting Location -->
@@ -21,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_marginTop="1dip"
+        android:textColor="@android:color/black"
         android:textSize="@dimen/rating" />
 
     <!-- Meeting Date -->
@@ -29,6 +32,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/meetingLocation"
+        android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
         android:textSize="@dimen/year" />
     <!-- Meeting Date -->
@@ -37,6 +41,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/meetingDate"
+        android:textColor="@android:color/black"
         android:layout_centerHorizontal="true"
         android:textSize="@dimen/year" />
 
@@ -69,7 +74,7 @@
         android:gravity="center_vertical"
         android:padding="5pt"
         android:text="Schedule"
-        android:textColor="@color/lbl_name" />
+        android:background="@drawable/buttonround" />
 
 
 </RelativeLayout>
