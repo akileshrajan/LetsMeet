@@ -150,7 +150,7 @@ public class InitiatorSchedule extends Fragment {
             super.onPostExecute(result);
             //Toast.makeText(Login.this,result, Toast.LENGTH_LONG).show();
 
-            System.out.println("Resulted Value: " + result);
+            System.out.println("Initiator Sch Resulted Value: " + result);
 
             if(result.equals("") || result == null){
 

@@ -35,10 +35,10 @@ public class EventSummary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_summary);
 
-        eventName = (TextView) findViewById(R.id.textView3);
-        eventDate = (TextView) findViewById(R.id.textView4);
-        eventTime = (TextView) findViewById(R.id.textView5);
-        eventLocation = (TextView) findViewById(R.id.textView6);
+        eventName = (TextView) findViewById(R.id.event_name);
+        eventDate = (TextView) findViewById(R.id.event_date);
+        eventTime = (TextView) findViewById(R.id.event_time);
+        eventLocation = (TextView) findViewById(R.id.event_location);
 
         btnConfirmevent = (Button) findViewById(R.id.confirm);
         btnPrevious = (Button) findViewById(R.id.button_prev);

@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/list_row_selector"
     android:padding="8dp"
-    android:id="@+id/lst_pend_rows">
+    android:id="@+id/lst_pend_rows"
+    >
 
     <!-- Meeting Name -->
     <TextView
@@ -12,8 +13,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/title"
+        android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:textStyle="bold" />
+        />
 
     <!-- Meeting Location -->
     <TextView
@@ -31,8 +33,18 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/year"
-        android:textColor="@android:color/black"
         android:layout_below="@+id/meetingLocation"
+        android:textColor="@android:color/black"
         android:layout_centerHorizontal="true" />
+    <!--View Button-->
+    <Button
+        android:layout_width="70sp"
+        android:layout_height="35sp"
+        android:id="@+id/btnView"
+        android:text="View"
+        android:padding="5pt"
+        android:background="@drawable/buttonround"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/meetingLocation" />
 
 </RelativeLayout>

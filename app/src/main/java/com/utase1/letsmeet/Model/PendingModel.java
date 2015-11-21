@@ -3,7 +3,7 @@ package com.utase1.letsmeet.Model;
 import java.util.ArrayList;
 
 /**
- * Created by akilesh on 11/5/2015.
+ * Created by akilesh on 11/20/2015.
  */
 public class PendingModel {
 

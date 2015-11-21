@@ -24,4 +24,9 @@ public class AppConfig {
 
     //Server put final event response
     public static String URL_GETEVENT = "http://omega.uta.edu/~axr1662/getevent.php";
+
+    //Server get accepted info
+    public static String URL_GETACCEPTED = "http://omega.uta.edu/~axr1662/final_accepted.php";
+    public static String URL_GETDECLINED = "http://omega.uta.edu/~axr1662/final_declined.php";
+
 }

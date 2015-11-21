@@ -72,7 +72,7 @@ public class MyMeetingsEvents extends AppCompatActivity {
         meetTimefrom=(TextView)findViewById(R.id.meetTimeFrom);
         meetTimeto = (TextView)findViewById(R.id.meetTimeTo);
         meetLocation=(TextView)findViewById(R.id.meetLocation);
-        meetParticipants =(TextView)findViewById(R.id.meetParticipants);
+
 
         btnProceed = (Button)findViewById(R.id.btnProceed);
         btnPrevious = (Button)findViewById(R.id.btnPrevious);
@@ -87,7 +87,7 @@ public class MyMeetingsEvents extends AppCompatActivity {
         meetDate.setText(extras.getString("meet_date"));
         meetTimefrom.setText(extras.getString("time_from"));
         meetTimeto.setText(extras.getString("time_to"));
-        meetParticipants.setText(extras.getString("participants"));
+
 
         //Link to Previous Page
         btnPrevious.setOnClickListener(new View.OnClickListener() {

@@ -1,18 +1,22 @@
 package com.utase1.letsmeet.activity;
 
 /**
- * Created by akilesh on 11/5/2015.
+ * Created by akilesh on 10/16/2015.
  */
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.MeasureSpec;
 import android.util.Log;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,22 +34,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.utase1.letsmeet.Model.AcceptedEventModel;
+import com.utase1.letsmeet.Model.AcceptedModel;
+import com.utase1.letsmeet.Model.PendingEventModel;
 import com.utase1.letsmeet.Model.PendingModel;
 import com.utase1.letsmeet.app.AppConfig;
+import com.utase1.letsmeet.helper.CustomAcceptedAdapter;
+import com.utase1.letsmeet.helper.CustomAcceptedEventAdapter;
 import com.utase1.letsmeet.helper.CustomPendingAdapter;
+import com.utase1.letsmeet.helper.CustomPendingEventAdapter;
 import com.utase1.letsmeet.helper.SQLiteHandler;
 import com.utase1.letsmeet.R;
+import com.utase1.letsmeet.Model.scheduleModel;
+import com.utase1.letsmeet.helper.CustomScheduleAdapter;
 
 
 public class PendingTab extends Fragment {
 
     private AsyncDataClass asyncRequestObject;
-    private List<PendingModel> schList = new ArrayList<PendingModel>();
-    private ListView vSchedule;
-    private CustomPendingAdapter adapter;
+    private List<scheduleModel> schList = new ArrayList<scheduleModel>();
+    private ListView meetDeclined;
+    private ListView eventDeclined;
+    private CustomAcceptedAdapter adapter;
     private SQLiteHandler db;
     private String email;
-
+    private String uid;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_pending_tab,container,false);
@@ -56,14 +69,36 @@ public class PendingTab extends Fragment {
         // Fetching user details from SQLite
         HashMap<String, String> user = db.getUserDetails();
         email = user.get("email");
-        asyncRequestObject = new AsyncDataClass();
-        asyncRequestObject.execute(AppConfig.URL_GETMEETING, email);
+        uid = user.get("uid");
 
-        ListView lstView = (ListView) getActivity().findViewById(R.id.lstPending);
+        asyncRequestObject = new AsyncDataClass();
+        asyncRequestObject.execute(AppConfig.URL_GETDECLINED, uid);
+
 
 
         return v;
 
+    }
+    public static class ListUtils {
+        public static void setDynamicHeight(ListView mListView) {
+            ListAdapter mListAdapter = mListView.getAdapter();
+            if (mListAdapter == null) {
+                // when adapter is null
+
+                return;
+            }
+            int height = 0;
+            int desiredWidth = MeasureSpec.makeMeasureSpec(mListView.getWidth(), MeasureSpec.UNSPECIFIED);
+            for (int i = 0; i < mListAdapter.getCount(); i++) {
+                View listItem = mListAdapter.getView(i, null, mListView);
+                listItem.measure(desiredWidth, MeasureSpec.UNSPECIFIED);
+                height += listItem.getMeasuredHeight();
+            }
+            ViewGroup.LayoutParams params = mListView.getLayoutParams();
+            params.height = height + (mListView.getDividerHeight() * (mListAdapter.getCount() - 1));
+            mListView.setLayoutParams(params);
+            mListView.requestLayout();
+        }
     }
 
 
@@ -81,9 +116,9 @@ public class PendingTab extends Fragment {
 
                 Map<String,String> nameValuePairs = new HashMap<String,String>();
 
-                nameValuePairs.put("email", params[1]);
+                nameValuePairs.put("uid", params[1]);
 
-                URL url = new URL(AppConfig.URL_GETMEETING);
+                URL url = new URL(AppConfig.URL_GETDECLINED);
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setDoOutput(true);
                 con.setDoInput(true);
@@ -143,7 +178,7 @@ public class PendingTab extends Fragment {
             super.onPostExecute(result);
             //Toast.makeText(Login.this,result, Toast.LENGTH_LONG).show();
 
-            //System.out.println("Resulted Value: " + result);
+            System.out.println("Declined Tab Resulted Value: " + result);
 
             if(result.equals("") || result == null){
 
@@ -166,20 +201,34 @@ public class PendingTab extends Fragment {
 
             if(success == 1){
                 List<PendingModel> lst = returnParsedJsonObject(result);
-                vSchedule = (ListView) getActivity().findViewById(R.id.lstPending);
+                meetDeclined = (ListView) getActivity().findViewById(R.id.lstMeetDeclined);
                 CustomPendingAdapter cta = new CustomPendingAdapter(getActivity(), R.layout.pending_rows,lst);
-                vSchedule.setAdapter(cta);
+                meetDeclined.setAdapter(cta);
+                ListAdapter meetDecline = meetDeclined.getAdapter();
+                int adamD_len = meetDecline.getCount();
+                if (adamD_len > 0){
+                    TextView tv_event = (TextView) getActivity().findViewById(R.id.meet_empty);
+                    //tv_event.setVisibility(View.INVISIBLE);
+                    tv_event.setAlpha(0.0f);
+                }
+
+                List<PendingEventModel> lstEvent = returnParsedJsonObjectEvent(result);
+                eventDeclined = (ListView) getActivity().findViewById(R.id.lstEventDeclined);
+                CustomPendingEventAdapter ctaEvent = new CustomPendingEventAdapter(getActivity(), R.layout.pending_rows,lstEvent);
+                eventDeclined.setAdapter(ctaEvent);
+                ListAdapter eventDecline = eventDeclined.getAdapter();
+                int adaeD_len = eventDecline.getCount();
+                if (adaeD_len > 0){
+                    TextView tv_event = (TextView) getActivity().findViewById(R.id.event_empty);
+                    //tv_event.setVisibility(View.INVISIBLE);
+                    tv_event.setAlpha(0.0f);
+                }
+
                 cta.notifyDataSetChanged();
+                ctaEvent.notifyDataSetChanged();
 
-
-
-                //MyCustomBaseAdapter adpt = new MyCustomBaseAdapter(getApplicationContext(),R.layout.events_view,lst);
-                //mListView.setAdapter(adpt);
-
-
-                //Intent intent = new Intent(getBaseContext(), GameEvents.class);
-                //startActivity(intent);
-                //asyncRequestObject.cancel(true);
+                ListUtils.setDynamicHeight(meetDeclined);
+                ListUtils.setDynamicHeight(eventDeclined);
 
             }
 
@@ -236,13 +285,13 @@ public class PendingTab extends Fragment {
             for(int i = 0;i< data.length();i++){
                 PendingModel sch = new PendingModel();
                 JSONObject obj = data.getJSONObject(i);
-                sch.setMeetId(obj.getString("unique_id"));
+
                 sch.setMeetname(obj.getString("meeting_name"));
                 sch.setLocation(obj.getString("meeting_location"));
                 sch.setDate(obj.getString("meeting_date"));
                 sch.setParticipants(obj.getString("meeting_participants"));
-                sch.setTimefrom(obj.getString("meeting_timefrom"));
-                sch.setTimeto(obj.getString("meeting_timeto"));
+                sch.setTimefrom(obj.getString("from_time"));
+                sch.setTimeto(obj.getString("to_time"));
                 schModelList.add(sch);
 
             }
@@ -257,6 +306,44 @@ public class PendingTab extends Fragment {
 
     }
 
+    private List<PendingEventModel> returnParsedJsonObjectEvent(String result){
+
+        JSONObject resultObject = null;
+        JSONArray data = null;
+        List<PendingEventModel> schModelList = new ArrayList<>();
+
+
+
+        try {
+
+            resultObject = new JSONObject(result);
+            data = resultObject.getJSONArray("results_event");
+
+
+
+            for(int i = 0;i< data.length();i++){
+                PendingEventModel sch = new PendingEventModel();
+                JSONObject obj = data.getJSONObject(i);
+
+                sch.setEventname(obj.getString("event_name"));
+                sch.setLocation(obj.getString("event_location"));
+                sch.setDate(obj.getString("event_date"));
+                sch.setParticipants(obj.getString("event_participants"));
+                sch.setTime(obj.getString("event_time"));
+
+                schModelList.add(sch);
+
+            }
+
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+
+        }
+
+        return schModelList;
+
+    }
     private int returnSuccess(String result){
         JSONObject successObject = null;
 

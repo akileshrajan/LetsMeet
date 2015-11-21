@@ -32,7 +32,7 @@ public class MySchedule extends ActionBarActivity implements PopupMenu.OnMenuIte
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayout tabs;
-    CharSequence Titles[]={"Accepted","Pending", "My Meeting"};
+    CharSequence Titles[]={"Accepted","Declined", "My Meeting"};
     int Numboftabs =3;
     private SQLiteHandler db;
     private SessionManager session;

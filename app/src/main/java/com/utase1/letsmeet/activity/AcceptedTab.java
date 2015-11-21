@@ -1,19 +1,22 @@
 package com.utase1.letsmeet.activity;
 
 /**
- * Created by akilesh on 11/1/2015.
+ * Created by akilesh on 10/16/2015.
  */
 
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.MeasureSpec;
 import android.util.Log;
-import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,23 +34,27 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.utase1.letsmeet.Model.AcceptedEventModel;
 import com.utase1.letsmeet.Model.AcceptedModel;
 import com.utase1.letsmeet.app.AppConfig;
 import com.utase1.letsmeet.helper.CustomAcceptedAdapter;
+import com.utase1.letsmeet.helper.CustomAcceptedEventAdapter;
 import com.utase1.letsmeet.helper.SQLiteHandler;
 import com.utase1.letsmeet.R;
+import com.utase1.letsmeet.Model.scheduleModel;
 import com.utase1.letsmeet.helper.CustomScheduleAdapter;
 
 
 public class AcceptedTab extends Fragment {
 
     private AsyncDataClass asyncRequestObject;
-    private List<AcceptedModel> schList = new ArrayList<AcceptedModel>();
-    private ListView vSchedule;
+    private List<scheduleModel> schList = new ArrayList<scheduleModel>();
+    private ListView meetAccepted;
+    private ListView eventAccepted;
     private CustomAcceptedAdapter adapter;
     private SQLiteHandler db;
     private String email;
-
+    private String uid;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_accepted_tab,container,false);
@@ -58,14 +65,35 @@ public class AcceptedTab extends Fragment {
         // Fetching user details from SQLite
         HashMap<String, String> user = db.getUserDetails();
         email = user.get("email");
-        asyncRequestObject = new AsyncDataClass();
-        asyncRequestObject.execute(AppConfig.URL_GETMEETING, email);
+        uid = user.get("uid");
 
-        ListView lstView = (ListView) getActivity().findViewById(R.id.lstAccepted);
+        asyncRequestObject = new AsyncDataClass();
+        asyncRequestObject.execute(AppConfig.URL_GETACCEPTED, uid);
+
 
 
         return v;
 
+    }
+    public static class ListUtils {
+        public static void setDynamicHeight(ListView mListView) {
+            ListAdapter mListAdapter = mListView.getAdapter();
+            if (mListAdapter == null) {
+                // when adapter is null
+                return;
+            }
+            int height = 0;
+            int desiredWidth = MeasureSpec.makeMeasureSpec(mListView.getWidth(), MeasureSpec.UNSPECIFIED);
+            for (int i = 0; i < mListAdapter.getCount(); i++) {
+                View listItem = mListAdapter.getView(i, null, mListView);
+                listItem.measure(desiredWidth, MeasureSpec.UNSPECIFIED);
+                height += listItem.getMeasuredHeight();
+            }
+            ViewGroup.LayoutParams params = mListView.getLayoutParams();
+            params.height = height + (mListView.getDividerHeight() * (mListAdapter.getCount() - 1));
+            mListView.setLayoutParams(params);
+            mListView.requestLayout();
+        }
     }
 
 
@@ -83,9 +111,9 @@ public class AcceptedTab extends Fragment {
 
                 Map<String,String> nameValuePairs = new HashMap<String,String>();
 
-                nameValuePairs.put("email", params[1]);
+                nameValuePairs.put("uid", params[1]);
 
-                URL url = new URL(AppConfig.URL_GETMEETING);
+                URL url = new URL(AppConfig.URL_GETACCEPTED);
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 con.setDoOutput(true);
                 con.setDoInput(true);
@@ -145,7 +173,7 @@ public class AcceptedTab extends Fragment {
             super.onPostExecute(result);
             //Toast.makeText(Login.this,result, Toast.LENGTH_LONG).show();
 
-            //System.out.println("Resulted Value: " + result);
+            System.out.println("Accepted Tab Resulted Value: " + result);
 
             if(result.equals("") || result == null){
 
@@ -168,13 +196,34 @@ public class AcceptedTab extends Fragment {
 
             if(success == 1){
                 List<AcceptedModel> lst = returnParsedJsonObject(result);
-                vSchedule = (ListView) getActivity().findViewById(R.id.lstAccepted);
+                meetAccepted = (ListView) getActivity().findViewById(R.id.lstMeetAccepted);
                 CustomAcceptedAdapter cta = new CustomAcceptedAdapter(getActivity(), R.layout.accepted_rows,lst);
-                vSchedule.setAdapter(cta);
+                meetAccepted.setAdapter(cta);
+                ListAdapter meetAccept = meetAccepted.getAdapter();
+                int adamA_len = meetAccept.getCount();
+                if (adamA_len > 0){
+                    TextView tv_meet = (TextView) getActivity().findViewById(R.id.meet_acceptedempty);
+                    //tv_meet.setVisibility(View.INVISIBLE);
+                    tv_meet.setAlpha(0.0f);
+                }
+
+                List<AcceptedEventModel> lstEvent = returnParsedJsonObjectEvent(result);
+                eventAccepted = (ListView) getActivity().findViewById(R.id.lstEventAccepted);
+                CustomAcceptedEventAdapter ctaEvent = new CustomAcceptedEventAdapter(getActivity(), R.layout.accepted_rows,lstEvent);
+                eventAccepted.setAdapter(ctaEvent);
+                ListAdapter eventAccept = eventAccepted.getAdapter();
+                int adaeA_len = eventAccept.getCount();
+                if (adaeA_len > 0){
+                    TextView tv_event = (TextView) getActivity().findViewById(R.id.event_acceptedempty);
+                    //tv_event.setVisibility(View.INVISIBLE);
+                    tv_event.setAlpha(0.0f);
+                }
 
                 cta.notifyDataSetChanged();
+                ctaEvent.notifyDataSetChanged();
 
-
+                ListUtils.setDynamicHeight(meetAccepted);
+                ListUtils.setDynamicHeight(eventAccepted);
 
                 //MyCustomBaseAdapter adpt = new MyCustomBaseAdapter(getApplicationContext(),R.layout.events_view,lst);
                 //mListView.setAdapter(adpt);
@@ -239,13 +288,13 @@ public class AcceptedTab extends Fragment {
             for(int i = 0;i< data.length();i++){
                 AcceptedModel sch = new AcceptedModel();
                 JSONObject obj = data.getJSONObject(i);
-                sch.setMeetId(obj.getString("unique_id"));
+
                 sch.setMeetname(obj.getString("meeting_name"));
                 sch.setLocation(obj.getString("meeting_location"));
                 sch.setDate(obj.getString("meeting_date"));
                 sch.setParticipants(obj.getString("meeting_participants"));
-                sch.setTimefrom(obj.getString("meeting_timefrom"));
-                sch.setTimeto(obj.getString("meeting_timeto"));
+                sch.setTimefrom(obj.getString("from_time"));
+                sch.setTimeto(obj.getString("to_time"));
                 schModelList.add(sch);
 
             }
@@ -260,6 +309,44 @@ public class AcceptedTab extends Fragment {
 
     }
 
+    private List<AcceptedEventModel> returnParsedJsonObjectEvent(String result){
+
+        JSONObject resultObject = null;
+        JSONArray data = null;
+        List<AcceptedEventModel> schModelList = new ArrayList<>();
+
+
+
+        try {
+
+            resultObject = new JSONObject(result);
+            data = resultObject.getJSONArray("results_event");
+
+
+
+            for(int i = 0;i< data.length();i++){
+                AcceptedEventModel sch = new AcceptedEventModel();
+                JSONObject obj = data.getJSONObject(i);
+
+                sch.setEventname(obj.getString("event_name"));
+                sch.setLocation(obj.getString("event_location"));
+                sch.setDate(obj.getString("event_date"));
+                sch.setParticipants(obj.getString("event_participants"));
+                sch.setTime(obj.getString("event_time"));
+
+                schModelList.add(sch);
+
+            }
+
+        } catch (JSONException e) {
+
+            e.printStackTrace();
+
+        }
+
+        return schModelList;
+
+    }
     private int returnSuccess(String result){
         JSONObject successObject = null;
 

@@ -1,27 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp"
-    android:paddingBottom="10dp"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@color/bg_register"
-    tools:context="${relativePackage}.${activityClass}">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:background="@color/bg_register">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dip" >
 
-    <ListView
-        android:id="@+id/lstAccepted"
-        android:cacheColorHint="#CCBBFFFF"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fadingEdge="none"
-        android:background="@color/white"
-        android:divider="@color/bg_register"
-        android:dividerHeight="2.0sp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Meeting"
+            android:textColor="@color/white"
+            android:textSize="25sp"/>
 
-    </ListView>
+        <ListView
+            android:id="@+id/lstMeetAccepted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:background="@color/white"
+            android:divider="@color/bg_register"
+            android:dividerHeight="1sp"/>
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/meet_acceptedempty"
+            android:text="@string/noItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:visibility="visible"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:gravity="center_vertical"
+            android:text="Events"
+            android:textColor="@color/white"
+            android:textSize="25sp"/>
+
+        <ListView
+            android:id="@+id/lstEventAccepted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:background="@color/white"
+            android:divider="@color/bg_register"
+            android:dividerHeight="1sp"/>
+        <TextView
+            android:id="@+id/event_acceptedempty"
+            android:text="@string/noItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:visibility="visible"/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -25,7 +25,8 @@ import java.util.Arrays;
 public class MeetingSummary extends AppCompatActivity {
     private TextView meetName;
     private TextView meetDate;
-    private TextView meetTime;
+    private TextView meetTimeFrom;
+    private TextView meetTimeTo;
     private TextView meetLocation;
     private Button btnConfirmmeet;
     private Button btnPrevious;
@@ -35,20 +36,22 @@ public class MeetingSummary extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_summary);
-        meetName = (TextView) findViewById(R.id.textView3_Meet);
-        meetDate = (TextView) findViewById(R.id.textView4_Meet);
-        meetTime = (TextView) findViewById(R.id.textView5_Meet);
-        meetLocation = (TextView) findViewById(R.id.textView6_Meet);
-        meetParticipants = (TextView) findViewById(R.id.textView7_Meet);
+        meetName = (TextView) findViewById(R.id.meetName);
+        meetDate = (TextView) findViewById(R.id.meetDate);
+        meetTimeFrom = (TextView) findViewById(R.id.meetTimeFrom);
+        meetTimeTo = (TextView) findViewById(R.id.meetTimeTo);
+        meetLocation = (TextView) findViewById(R.id.meetLocation);
 
-        btnConfirmmeet = (Button) findViewById(R.id.confirm_meet);
-        btnPrevious = (Button) findViewById(R.id.button_prev_meet);
+
+        btnConfirmmeet = (Button) findViewById(R.id.btnConfirm);
+        btnPrevious = (Button) findViewById(R.id.btnPrevious);
 
         meetName.setText(getIntent().getExtras().getString("MeetName"));
         meetDate.setText(getIntent().getExtras().getString("MeetDate"));
-        meetTime.setText(getIntent().getExtras().getString("MeetTime"));
+        meetTimeFrom.setText(getIntent().getExtras().getString("MeetTimeFrom"));
+        meetTimeTo.setText(getIntent().getExtras().getString("MeetTimeTo"));
         meetLocation.setText(getIntent().getExtras().getString("MeetLocation"));
-        meetParticipants.setText(getIntent().getExtras().getString("Participants"));
+
 
 
         //Link to Previous Page
@@ -75,10 +78,10 @@ public class MeetingSummary extends AppCompatActivity {
                     obj.put("action", "com.utase1.letsmeet.activity.UPDATE_STATUS");
                     obj.put("MeetName", meetName.getText().toString());
                     obj.put("MeetDate", meetDate.getText().toString());
-                    obj.put("MeetTime", meetTime.getText().toString());
+                    obj.put("MeetTime", meetTimeFrom.getText().toString());
                     obj.put("MeetLocation", meetLocation.getText().toString());
                     obj.put("EventorMeeting","Meeting");
-                    obj.put("customdata", meetTime + " " + meetDate + " " + meetLocation);
+                    obj.put("customdata", meetTimeFrom + " " + meetDate + " " + meetLocation);
 
                     String users = getIntent().getExtras().getString("Participants");
 

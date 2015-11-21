@@ -163,7 +163,7 @@ public class CreateEvent extends AppCompatActivity implements
         txtName = (EditText) findViewById(R.id.event_name);
         txtDate = (TextView) findViewById(R.id.event_date);
         txtTime = (TextView) findViewById(R.id.event_time);
-        txtLocation = (TextView) findViewById(R.id.address);
+
         txtParticipants = (EditText) findViewById(R.id.participants);
 
         btnCreateevent.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +174,7 @@ public class CreateEvent extends AppCompatActivity implements
                 String eventName = txtName.getText().toString();
                 String eventDate = txtDate.getText().toString();
                 String eventTime = txtTime.getText().toString();
-                String eventLocation = txtLocation.getText().toString();
+                String eventLocation = mAutocompleteTextView.getText().toString();
                 String eventParticipants = txtParticipants.getText().toString();
 
                 txtTime.setHint("Click here to choose time");

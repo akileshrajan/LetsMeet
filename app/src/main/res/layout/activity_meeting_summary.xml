@@ -5,7 +5,7 @@
     android:background="@color/bg_register">
 
     <TextView
-        android:id="@+id/textView2_Meet"
+        android:id="@+id/meetDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -15,70 +15,109 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView3_Meet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView2_Meet"
-        android:layout_alignTop="@+id/textView2_Meet"
-        android:layout_below="@+id/textView2_Meet"
-        android:layout_marginTop="40dp"
-        android:layout_toRightOf="@+id/button_prev_meet"
+        android:text="Name: "
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:id="@+id/txt_name"
+        android:layout_below="@+id/meetDetails"
+        android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/meetName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_above="@+id/txt_date"
+        android:layout_toEndOf="@+id/txt_timefrom"/>
 
     <TextView
-        android:id="@+id/textView4_Meet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView3_Meet"
-        android:layout_alignRight="@+id/textView3_Meet"
-        android:layout_below="@+id/textView3_Meet"
-        android:layout_toRightOf="@+id/button_prev_meet"
+        android:text="Date: "
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:id="@+id/txt_date"
+        android:layout_below="@+id/txt_name"
+        android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/textView5_Meet"
+        android:id="@+id/meetDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView4_Meet"
-        android:layout_alignRight="@+id/textView4_Meet"
-        android:layout_alignTop="@+id/textView4_Meet"
-        android:layout_below="@+id/textView4_Meet"
-        android:layout_marginTop="40dp"
-        android:layout_toRightOf="@+id/button_prev_meet"
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/txt_date"
+        android:layout_alignStart="@+id/meetName"
+        android:layout_toEndOf="@+id/txt_timefrom"/>
 
     <TextView
-        android:id="@+id/textView6_Meet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView5_Meet"
-        android:layout_alignRight="@+id/textView5_Meet"
-        android:layout_below="@+id/textView5_Meet"
-        android:layout_toRightOf="@+id/button_prev_meet"
+        android:text="Time From: "
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:id="@+id/txt_timefrom"
+        android:layout_below="@+id/meetDate"
+        android:layout_alignParentStart="true" />
 
     <TextView
-        android:id="@+id/textView7_Meet"
+        android:id="@+id/meetTimeFrom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textView6_Meet"
-        android:layout_alignStart="@+id/textView6_Meet"
-        android:layout_below="@+id/textView6_Meet"
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/txt_timefrom"
+        android:layout_toEndOf="@+id/txt_timefrom"
+        />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time To: "
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:id="@+id/txt_timeto"
+        android:layout_above="@+id/meetLocation"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/meetTimeTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/meetTimeFrom"
+        android:layout_toEndOf="@+id/txt_timefrom"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location: "
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:id="@+id/txt_location"
+        android:layout_alignTop="@+id/meetLocation"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/meetLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_alignEnd="@+id/meetDetails"
+        android:layout_below="@+id/meetTimeTo"
+        android:layout_toEndOf="@+id/txt_timefrom" />
 
     <Button
-        android:id="@+id/button_prev_meet"
+        android:id="@+id/btnPrevious"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -86,17 +125,14 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="95dp"
         android:background="@color/bg_main"
-        android:onClick="previous_click_Meet"
         android:text="Previous" />
-
     <Button
-        android:id="@+id/confirm_meet"
+        android:id="@+id/btnConfirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button_prev_meet"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:background="@color/bg_main"
-        android:text="Confirm" />
+        android:text="Confirm"
+        android:layout_alignTop="@+id/btnPrevious"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

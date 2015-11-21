@@ -152,7 +152,7 @@ public class CreateMeeting extends AppCompatActivity implements GoogleApiClient.
         txtDate = (TextView) findViewById(R.id.meeting_date);
         txtTimefrom = (TextView) findViewById(R.id.meeting_timefrom);
         txtTimeto = (TextView) findViewById(R.id.meeting_timeto);
-        txtLocation = (TextView) findViewById(R.id.address);
+
         participants = (EditText) findViewById(R.id.participants);
 
         btnCreateMeeting.setOnClickListener(new View.OnClickListener() {
@@ -164,7 +164,7 @@ public class CreateMeeting extends AppCompatActivity implements GoogleApiClient.
                 String meetDate = txtDate.getText().toString();
                 String meetTimefrom = txtTimefrom.getText().toString();
                 String meetTimeto = txtTimeto.getText().toString();
-                String meetLocation = txtLocation.getText().toString();
+                String meetLocation = mAutocompleteTextView.getText().toString();
                 String meetParticipants = participants.getText().toString();
 
                 txtTimefrom.setHint("Click here to choose time");
@@ -423,8 +423,8 @@ public class CreateMeeting extends AppCompatActivity implements GoogleApiClient.
 
                         intent.putExtra("MeetName",name);
                         intent.putExtra("MeetDate",date);
-                        intent.putExtra("MeetTime",timeFrom);
-                        intent.putExtra("MeetTime",timeTo);
+                        intent.putExtra("MeetTimeFrom",timeFrom);
+                        intent.putExtra("MeetTimeTo",timeTo);
                         intent.putExtra("MeetLocation",location);
                         intent.putExtra("Participants",participants);
                         startActivity(intent);
