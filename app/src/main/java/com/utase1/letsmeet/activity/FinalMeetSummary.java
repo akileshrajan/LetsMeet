@@ -25,6 +25,8 @@ public class FinalMeetSummary extends AppCompatActivity {
     private TextView _meetLocation;
     private TextView _meet_participants;
     private Button _button_prev;
+    private Button _button_drive;
+    private Button _button_map;
     private SessionManager session;
     private SQLiteHandler db;
     private String txtemail;
@@ -58,6 +60,8 @@ public class FinalMeetSummary extends AppCompatActivity {
         _meetLocation=(TextView)findViewById(R.id.meet_location);
         //_meet_participants =(TextView) findViewById(R.id.meet_part);
         _button_prev = (Button) findViewById(R.id.button_prev_meet);
+        _button_map = (Button) findViewById(R.id.mapButton);
+        _button_drive = (Button) findViewById(R.id.driveButton);
 
         _meetName.setText(getIntent().getExtras().getString("meet_name"));
         _meetDate.setText(getIntent().getExtras().getString("meet_date"));
@@ -76,5 +80,38 @@ public class FinalMeetSummary extends AppCompatActivity {
             }
         });
 
+        _button_map.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),
+                        MapsActivity.class);
+                // Adding intent to make sure when we come back to this page after map activity, we have all the data we need.
+                i.putExtra("meet_name", getIntent().getExtras().getString("meet_name"));
+                i.putExtra("meet_date", getIntent().getExtras().getString("meet_date"));
+                i.putExtra("time_from", getIntent().getExtras().getString("time_from"));
+                i.putExtra("time_to", getIntent().getExtras().getString("time_to"));
+                i.putExtra("meet_location", getIntent().getExtras().getString("meet_location"));
+                i.putExtra("location", getIntent().getExtras().getString("meet_location"));
+                startActivity(i);
+                finish();
+            }
+        });
+
+        _button_drive.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),
+                        EventUpload.class);
+                // Adding intent to make sure when we come back to this page after drive activity, we have all the data we need.
+                i.putExtra("meet_name", getIntent().getExtras().getString("meet_name"));
+                i.putExtra("meet_date", getIntent().getExtras().getString("meet_date"));
+                i.putExtra("time_from", getIntent().getExtras().getString("time_from"));
+                i.putExtra("time_to", getIntent().getExtras().getString("time_to"));
+                i.putExtra("meet_location", getIntent().getExtras().getString("meet_location"));
+                i.putExtra("event_or_meet", "MEET");
+                startActivity(i);
+                finish();
+            }
+        });
     }
 }

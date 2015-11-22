@@ -121,13 +121,30 @@
         android:id="@+id/button_prev_meet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="95dp"
+        android:layout_marginBottom="92dp"
         android:background="@color/bg_main"
         android:onClick="previous_click_Meet"
-        android:text="Previous" />
+        android:text="Previous"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/txt_timeto" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take a picture"
+        android:id="@+id/driveButton"
+        android:background="@color/bg_main"
+        android:layout_alignTop="@+id/button_prev_meet"
+        android:layout_alignStart="@+id/meet_location" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:id="@+id/mapButton"
+        android:background="@color/bg_main"
+        android:layout_alignTop="@+id/driveButton"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="25dp" />
 
 </RelativeLayout>

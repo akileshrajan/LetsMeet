@@ -29,4 +29,16 @@ public class AppConfig {
     public static String URL_GETACCEPTED = "http://omega.uta.edu/~axr1662/final_accepted.php";
     public static String URL_GETDECLINED = "http://omega.uta.edu/~axr1662/final_declined.php";
 
+    // Adding below URL's as a part of Google cloud messaging
+    //Server put final event response
+    public static String URL_REGGCM = "http://omega.uta.edu/~axr1662/storeGCMDetails.php";
+
+    //used to share GCM regId with application server - using php app server
+    public static String URL_SENDMESS = "http://omega.uta.edu/~axr1662/sendMessageGcm.php";
+
+    //public static String GOOGLE_PROJECT_ID = "197366189680";
+    // LetsMeet key: AIzaSyA1FmHLspN8Y_o2hWyRILGzRHUPqbWtwzw
+    public static String GOOGLE_PROJECT_ID = "352921123411";
+    public static String MESSAGE_KEY = "message";
+
 }

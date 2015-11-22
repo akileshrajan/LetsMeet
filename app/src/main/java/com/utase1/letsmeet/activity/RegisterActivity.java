@@ -158,7 +158,8 @@ public class RegisterActivity extends Activity {
                         // Launch login activity
                         Intent intent = new Intent(
                                 RegisterActivity.this,
-                                LoginActivity.class);
+                                RegisterUserGcm.class);
+                        intent.putExtra("mailid",email);
                         startActivity(intent);
                         finish();
                     } else {
