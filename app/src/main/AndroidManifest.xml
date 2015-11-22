@@ -46,7 +46,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.CreateMeeting"
             android:label="@string/app_name"
@@ -99,7 +98,18 @@
             android:name=".activity.FinalMeetSummary"
             android:label="@string/app_name"
             android:launchMode="singleTop" />
-
+        <activity
+            android:name=".activity.RegisterUserGcm"
+            android:label="@string/app_name"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".activity.MapsActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".activity.EventUpload"
+            android:label="@string/app_name"
+            android:launchMode="singleTop" />
 
         <service android:name="com.parse.PushService" />
 
@@ -120,6 +130,25 @@
                 <action android:name="com.utase1.letsmeet.activity.UPDATE_STATUS" />
             </intent-filter>
         </receiver>
+        <!-- Adding as a part of Google Cloud Messaging -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.utase1.letsmeet" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".activity.MyGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -127,9 +156,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDiBgAuL5QFDaSLM1FGGA7H4msCYA84NUo" />
-
-
-
 
         <!--
         <activity
