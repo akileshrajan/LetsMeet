@@ -55,12 +55,25 @@ public class MyGcmListenerService extends GcmListenerService {
             pendingIntent = PendingIntent.getActivity(this, 0,
                     pupInt, 0);
         }
+        else if(meet_event_Details[0].equals("FreeTimeScheduler"))
+        {
+            Intent pupInt = new Intent(this, AcceptDeclineMeeting.class);
+
+            pupInt.putExtra("MeetName", meet_event_Details[1]);
+            pupInt.putExtra("MeetDate", meet_event_Details[2]);
+            pupInt.putExtra("MeetTime", meet_event_Details[3]);
+            pupInt.putExtra("MeetLocation", meet_event_Details[4]);
+
+            pendingIntent = PendingIntent.getActivity(this, 0,
+                    pupInt, 0);
+        }
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Lets Meet")
                 .setContentText(meet_event_Details[1])
-                .setContentIntent(pendingIntent);
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true);
 
         NotificationManager nm = (NotificationManager) getApplicationContext()
                 .getSystemService(Context.NOTIFICATION_SERVICE);
