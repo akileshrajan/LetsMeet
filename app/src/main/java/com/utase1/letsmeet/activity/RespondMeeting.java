@@ -2,6 +2,7 @@ package com.utase1.letsmeet.activity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -30,38 +31,29 @@ import com.utase1.letsmeet.app.AppConfig;
 import com.utase1.letsmeet.app.AppController;
 import com.utase1.letsmeet.helper.SQLiteHandler;
 import com.utase1.letsmeet.helper.SessionManager;
+import com.utase1.letsmeet.helper.Test;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 import android.widget.CompoundButton;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class RespondMeeting extends AppCompatActivity  implements NumberPicker.OnValueChangeListener {
     private static final String TAG = RegisterActivity.class.getSimpleName();
-    static final int date_dialog_id = 999;
-    static final int TIME_DIALOG_ID_FROM = 997;
-    static final int TIME_DIALOG_ID_TO = 998;
-    private static TextView tv;
+
+
     private TextView _meetName;
     private TextView _meetDate;
     private TextView _meetTime;
     private TextView _meetLocation;
     private Button btnRespondMeet;
-    private Button addTime;
-    private TextView tvDisplayDate;
-    private int year;
-    private int month;
-    private int day;
-    private TextView tvDisplayTimeFrom;
-
-    private TextView tvDisplayTimeTo;
-    private int hour;
-    private int minute;
-    private EditText txtName;
-    private TextView txtDate;
     private TextView txtTimefrom;
     private TextView txtTimeto;
     private ProgressDialog pDialog;
@@ -77,8 +69,7 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_respond_meeting);
-        setCurrentTimeOnView();
-        addListenerOnTime();
+
         // Progress dialog
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -108,10 +99,7 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
         _meetDate=(TextView)findViewById(R.id.textView4);
         _meetTime=(TextView)findViewById(R.id.textView5);
         _meetLocation=(TextView)findViewById(R.id.textView6);
-
-
-        txtTimefrom.setVisibility(View.GONE);
-        txtTimeto.setVisibility(View.GONE);
+        setTimePicker(txtTimefrom,txtTimeto);
         RadioButton repeatChkBx = (RadioButton) findViewById( R.id.userCalTime );
         repeatChkBx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -128,6 +116,7 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
             }
         });
         RadioButton userFreeTime = (RadioButton) findViewById( R.id.userFreeTime);
+        userFreeTime.setChecked(true);
         userFreeTime.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
@@ -153,7 +142,20 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
                 String meetName = _meetName.getText().toString().trim();
                 String fromTime = txtTimefrom.getText().toString().trim();
                 String toTime = txtTimeto.getText().toString().trim();
+                try
+                {
+                    java.text.DateFormat formatter  = new SimpleDateFormat("hh.mm.ss a");
+                   Date  date =  (Date)formatter.parse(fromTime);
+                   fromTime=date.getHours()+"";
+                    Date  date1 =  (Date)formatter.parse(toTime);
+                    toTime=date.getHours()+"";
 
+
+                }
+                catch(ParseException ps)
+                {
+
+                }
                 registerFreeUserTime(meetName,fromTime,toTime,txtEmail);
                 Intent i = new Intent(getApplicationContext(), MySchedule.class);
                 startActivity(i);
@@ -166,6 +168,43 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
                 startActivity(i);
             }
         });*/
+
+    }
+
+    private void setTimePicker(TextView txtTimefrom, TextView txtTimeto) {
+
+        final Calendar c = Calendar.getInstance();
+
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        if(hour<12)
+        {
+            int  minute = c.get(Calendar.MINUTE);
+            this.txtTimefrom.setText(hour + ":" + minute + " AM ");
+            this.txtTimeto.setText(hour + ":" + minute + " AM ");
+        }
+        else
+        {
+            int  minute = c.get(Calendar.MINUTE);
+            this.txtTimefrom.setText(hour + ":" + minute + " PM ");
+            this.txtTimeto.setText(hour + ":" + minute + " AM ");
+        }
+
+    }
+    public void showTimePickerDialog(View v) {
+        switch(v.getId())  //get the id of the view clicked. (in this case button)
+        {
+            case R.id.meeting_timefrom : // if its button1
+                this.txtTimefrom = (TextView) findViewById(R.id.meeting_timefrom);
+                DialogFragment newFragment = new Test(this.txtTimefrom);
+                newFragment.show(RespondMeeting.this.getFragmentManager(), "setTime");
+                break;
+            case R.id.meeting_timeto : // if its button1
+                //do something
+                this.txtTimeto = (TextView) findViewById(R.id.meeting_timeto);
+                DialogFragment newFragment1 = new Test(this.txtTimeto);
+                newFragment1.show(RespondMeeting.this.getFragmentManager(), "setTime");
+                break;
+        }
 
     }
 
@@ -237,79 +276,6 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
 
     }
 
-    private void addListenerOnTime() { tvDisplayTimeFrom = (TextView) findViewById(R.id.meeting_timefrom);
-        tvDisplayTimeFrom.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                final Dialog d = new Dialog(RespondMeeting.this);
-                d.setTitle("Add Time");
-                d.setContentView(R.layout.dialog);
-                Button set = (Button) d.findViewById(R.id.set);
-                Button cancel = (Button) d.findViewById(R.id.cancel);
-                final NumberPicker np = (NumberPicker) d.findViewById(R.id.numberPicker1);
-                np.setMaxValue(24);
-                np.setMinValue(1);
-                np.setWrapSelectorWheel(true);
-                np.setOnValueChangedListener(RespondMeeting.this);
-                set.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v) {
-                        tvDisplayTimeFrom.setText(String.valueOf(np.getValue()));
-                        d.dismiss();
-                    }
-                });
-                cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        d.dismiss();
-                    }
-                });
-                d.show();
-                //showDialog(TIME_DIALOG_ID_FROM);
-
-            }
-
-        });
-        tvDisplayTimeTo = (TextView) findViewById(R.id.meeting_timeto);
-        tvDisplayTimeTo.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                final Dialog d = new Dialog(RespondMeeting.this);
-                d.setTitle("Add Time");
-                d.setContentView(R.layout.dialog);
-                Button set = (Button) d.findViewById(R.id.set);
-                Button cancel = (Button) d.findViewById(R.id.cancel);
-                final NumberPicker np = (NumberPicker) d.findViewById(R.id.numberPicker1);
-                np.setMaxValue(24);
-                np.setMinValue(1);
-                np.setWrapSelectorWheel(true);
-                np.setOnValueChangedListener(RespondMeeting.this);
-                set.setOnClickListener(new View.OnClickListener()
-                {
-                    @Override
-                    public void onClick(View v) {
-                        tvDisplayTimeTo.setText(String.valueOf(np.getValue()));
-                        d.dismiss();
-                    }
-                });
-                cancel.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        d.dismiss();
-                    }
-                });
-                d.show();
-                //showDialog(TIME_DIALOG_ID_FROM);
-
-            }
-
-        });
-
-
-    }
 
     private void showDialog() {
         if (!pDialog.isShowing())
@@ -323,15 +289,7 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
 
 
 
-    private void setCurrentTimeOnView() {
-        tvDisplayTimeFrom = (TextView) findViewById(R.id.meeting_timefrom);
-        tvDisplayTimeTo = (TextView) findViewById(R.id.meeting_timeto);
-        final Calendar c = Calendar.getInstance();
-        hour = c.get(Calendar.HOUR_OF_DAY);
 
-
-
-    }
 
 
 
