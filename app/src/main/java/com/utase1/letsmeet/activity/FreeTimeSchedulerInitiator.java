@@ -161,8 +161,6 @@ public class FreeTimeSchedulerInitiator  extends ArrayAdapter {
 
     private void pushNotification(int position) {
         StringBuilder users=new StringBuilder();
-
-
         ParsePush push = new ParsePush();
         ParseQuery query = ParseInstallation.getQuery();
         String[] userLists = users.toString().split(",");
@@ -212,6 +210,7 @@ public class FreeTimeSchedulerInitiator  extends ArrayAdapter {
                 hideDialog();
 
                 try {
+
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
                     if (!error) {
@@ -249,10 +248,10 @@ public class FreeTimeSchedulerInitiator  extends ArrayAdapter {
                 // Posting params to create meeting url
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("meetName", meetingName);
-                params.put("meetDate", meetingDate);
+               // params.put("meetDate", meetingDate);
                 params.put("meetTimeFrom", timeSlot+"");
                 params.put("meetTimeTo", timeSlot+1+"");
-                params.put("meetLocation", meetingLocation);
+               // params.put("meetLocation", meetingLocation);
                 params.put("meetId",meetingid);
                 params.put("Participants", userLists);
 
