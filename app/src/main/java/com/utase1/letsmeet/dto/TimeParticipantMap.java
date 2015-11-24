@@ -10,6 +10,15 @@ public class TimeParticipantMap implements Serializable {
 	ArrayList<ParticipantDetails> participantDetails=new ArrayList<ParticipantDetails>();
 	int timeSlot;
 	int maxParticipants;
+	String  meetingid;
+
+	public String getMeetingid() {
+		return meetingid;
+	}
+
+	public void setMeetingid(String meetingid) {
+		this.meetingid = meetingid;
+	}
 	
 	public ArrayList<ParticipantDetails> getParticipantDetails() {
 		return participantDetails;

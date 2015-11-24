@@ -12,7 +12,7 @@ public class ScheduleTime {
 
 	ArrayList<TimeParticipantMap> timeParticipantMapsNew=null;
 
-	public ArrayList<TimeParticipantMap> getFreeTime(ArrayList<com.utase1.letsmeet.dto.ParticipantDetails> participantDetails) {
+	public ArrayList<TimeParticipantMap> getFreeTime(ArrayList<com.utase1.letsmeet.dto.ParticipantDetails> participantDetails,String meet_id) {
 		// TODO Auto-generated method stub
 		/*ArrayList<ParticipantDetails> participantDetails = new ArrayList<ParticipantDetails>();
 		participantDetails = createData(participantDetails);*/
@@ -53,6 +53,7 @@ public class ScheduleTime {
 					timeParticipantMap = new TimeParticipantMap(
 							partListForTime,j+1,countFreeTime);
 					finalFreeCommonTime.add(countFreeTime);
+					timeParticipantMap.setMeetingid(meet_id);
 					timeParticipantMaps.add(timeParticipantMap);
 
 				}
