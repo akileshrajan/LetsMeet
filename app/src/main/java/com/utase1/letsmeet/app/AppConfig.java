@@ -40,5 +40,6 @@ public class AppConfig {
     // LetsMeet key: AIzaSyA1FmHLspN8Y_o2hWyRILGzRHUPqbWtwzw
     public static String GOOGLE_PROJECT_ID = "352921123411";
     public static String MESSAGE_KEY = "message";
+    public static String URL_SCHEDULEFINALMEET = "http://omega.uta.edu/~axr1662/scheduleFinalMeeting.php";
 
 }

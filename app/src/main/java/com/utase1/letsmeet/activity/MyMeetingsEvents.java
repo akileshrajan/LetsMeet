@@ -201,7 +201,7 @@ public class MyMeetingsEvents extends AppCompatActivity {
     private void calculateFreeTime() {
         if (partList != null && partList.size() > 0) {
             ScheduleTime scheduleTest=new ScheduleTime();
-            List<TimeParticipantMap> commonFreeTime= scheduleTest.getFreeTime(partList);
+            List<TimeParticipantMap> commonFreeTime= scheduleTest.getFreeTime(partList, meet_id);
             setContentView(R.layout.activity_scheduling_initiator);
             freeTimeList = (ListView) findViewById(R.id.list_freetime);
             FreeTimeSchedulerInitiator freeTimeSchedulerInitiator=new FreeTimeSchedulerInitiator(MyMeetingsEvents.this,R.layout.freetimeschedulerows,  commonFreeTime,meetNameValue,meetDateValue,meetLocationValue);
