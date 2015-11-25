@@ -113,7 +113,7 @@
     <TextView
 
         android:id="@+id/meeting_timeto"
-        android:layout_width="85dp"
+        android:layout_width="120dp"
         android:layout_height="35dp"
         android:editable="true"
         android:hint="Add To Time"
@@ -129,7 +129,7 @@
     <TextView
 
         android:id="@+id/meeting_timefrom"
-        android:layout_width="85dp"
+        android:layout_width="150dp"
         android:layout_height="35dp"
         android:editable="true"
         android:hint="Add from Time"
