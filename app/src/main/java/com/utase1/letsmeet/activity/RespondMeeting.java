@@ -43,6 +43,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class RespondMeeting extends AppCompatActivity  implements NumberPicker.OnValueChangeListener {
@@ -144,17 +145,19 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
                 String toTime = txtTimeto.getText().toString().trim();
                 try
                 {
-                    java.text.DateFormat formatter  = new SimpleDateFormat("hh.mm.ss a");
-                   Date  date =  (Date)formatter.parse(fromTime);
-                   fromTime=date.getHours()+"";
+                    java.text.DateFormat formatter  = new SimpleDateFormat("hh:mm a");
+                    Date  date =  (Date)formatter.parse(fromTime);
+                    fromTime=date.getHours()+"";
+                    System.out.print("fromtime"+fromTime);
                     Date  date1 =  (Date)formatter.parse(toTime);
-                    toTime=date.getHours()+"";
+                    toTime=date1.getHours()+"";
+                    System.out.print("totime"+toTime);
 
 
                 }
                 catch(ParseException ps)
                 {
-
+                    ps.printStackTrace();
                 }
                 registerFreeUserTime(meetName,fromTime,toTime,txtEmail);
                 Intent i = new Intent(getApplicationContext(), MySchedule.class);
@@ -179,14 +182,14 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
         if(hour<12)
         {
             int  minute = c.get(Calendar.MINUTE);
-            this.txtTimefrom.setText(hour + ":" + minute + " AM ");
-            this.txtTimeto.setText(hour + ":" + minute + " AM ");
+            this.txtTimefrom.setText(hour + ":" + minute + "am");
+            this.txtTimeto.setText(hour + ":" + minute + "pm");
         }
         else
         {
             int  minute = c.get(Calendar.MINUTE);
-            this.txtTimefrom.setText(hour + ":" + minute + " PM ");
-            this.txtTimeto.setText(hour + ":" + minute + " AM ");
+            this.txtTimefrom.setText(hour + ":" + minute + "am");
+            this.txtTimeto.setText(hour + ":" + minute + "pm");
         }
 
     }
@@ -213,6 +216,9 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
         // Tag used to cancel the request
         String tag_string_req = "req_login";
         pDialog.setMessage("Processing...");
+
+
+
         showDialog();
 
         StringRequest strReq = new StringRequest(Method.POST,
