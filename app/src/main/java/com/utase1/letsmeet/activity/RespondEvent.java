@@ -110,7 +110,8 @@ public class RespondEvent extends AppCompatActivity {
 
     }
 
-    public void userRespondEvent(final String eventName, final String eventTime, final String eventDate, final String txtemail, final String status){
+    public void userRespondEvent(final String eventName, final String eventTime, final String eventDate, final String txtemail, final String status)
+    {
 
         // Tag used to cancel the request
         String tag_string_req = "req_login";

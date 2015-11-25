@@ -1,10 +1,152 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.utase1.letsmeet.activity.AcceptDeclineMeeting">
+    tools:context="com.utase1.letsmeet.activity.RespondMeeting"
+    android:orientation="vertical"
+    android:background="@color/bg_register"
+    android:weightSum="1">
 
-</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="360dp"
+        android:layout_height="200dp"
+        android:background="@color/bg_register"
+        android:layout_weight="1.56">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meeting Name"
+            android:id="@+id/textView8"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_alignTop="@+id/textView3"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/textView3"
+            android:layout_above="@+id/textView9" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:id="@+id/textView9"
+            android:layout_above="@+id/textView10"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:id="@+id/textView10"
+            android:layout_above="@+id/textView11"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:id="@+id/textView11"
+            android:layout_alignParentBottom="true"
+
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="46dp" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:id="@+id/meetdateid"
+            android:layout_alignBottom="@+id/textView9"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:layout_below="@+id/textView8"
+            android:layout_toEndOf="@+id/textView8"
+            android:layout_alignStart="@+id/meetNameId" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="time"
+            android:id="@+id/timeid"
+            android:layout_toEndOf="@+id/textView10"
+            android:layout_alignBottom="@+id/textView10"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            android:layout_alignStart="@+id/meetdateid" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="location"
+            android:id="@+id/locationid"
+            android:layout_toEndOf="@+id/textView10"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            android:layout_alignStart="@+id/timeid"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/textView11" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Meet Name"
+            android:id="@+id/meetNameId"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+
+            android:layout_marginStart="32dp"
+            android:layout_above="@+id/meetdateid"
+            android:layout_toEndOf="@+id/textView8" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Meeting Summary"
+            android:id="@+id/meetSum"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/textView9"
+            android:layout_alignParentStart="true"
+            android:textSize="25dp"
+            android:textColor="@android:color/white"
+            android:textAlignment="center" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accept"
+            android:id="@+id/acceptId"
+            android:onClick="acceptMeeting"
+            android:background="@drawable/buttonround"
+            android:layout_alignTop="@+id/declineId"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Decline"
+            android:onClick="declineMeet"
+            android:id="@+id/declineId"
+            android:background="@drawable/buttonround"
+            android:layout_marginBottom="57dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

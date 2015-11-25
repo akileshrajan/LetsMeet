@@ -39,7 +39,7 @@ public class MyGcmListenerService extends GcmListenerService {
             pupInt.putExtra("EventTime", meet_event_Details[3]);
             pupInt.putExtra("EventLocation", meet_event_Details[4]);
             pendingIntent = PendingIntent.getActivity(this, 0,
-                    pupInt, 0);
+                    pupInt, PendingIntent.FLAG_UPDATE_CURRENT);
         }
         else if(meet_event_Details[0].equals("Meeting"))
         {
@@ -53,7 +53,7 @@ public class MyGcmListenerService extends GcmListenerService {
             pupInt.putExtra("MeetLocation", meet_event_Details[5]);
 
             pendingIntent = PendingIntent.getActivity(this, 0,
-                    pupInt, 0);
+                    pupInt, PendingIntent.FLAG_UPDATE_CURRENT);
         }
         else if(meet_event_Details[0].equals("FreeTimeScheduler"))
         {
@@ -65,7 +65,7 @@ public class MyGcmListenerService extends GcmListenerService {
             pupInt.putExtra("MeetLocation", meet_event_Details[4]);
 
             pendingIntent = PendingIntent.getActivity(this, 0,
-                    pupInt, 0);
+                    pupInt, PendingIntent.FLAG_UPDATE_CURRENT);
         }
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
