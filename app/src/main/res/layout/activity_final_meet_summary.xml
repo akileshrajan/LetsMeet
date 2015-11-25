@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:text="Meeting Summary"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
     <TextView
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:text="Name: "
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:id="@+id/txt_name"
         android:layout_below="@+id/meet_summ"
         android:layout_alignParentStart="true" />
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_above="@+id/txt_date"
         android:layout_toEndOf="@+id/txt_timefrom"/>
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:text="Date: "
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:id="@+id/txt_date"
         android:layout_below="@+id/txt_name"
         android:layout_alignParentStart="true" />
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_alignTop="@+id/txt_date"
         android:layout_alignStart="@+id/meet_name"
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:text="Time From: "
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:id="@+id/txt_timefrom"
         android:layout_below="@+id/meet_date"
         android:layout_alignParentStart="true" />
@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_alignTop="@+id/txt_timefrom"
         android:layout_toEndOf="@+id/txt_timefrom"
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:text="Time To: "
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:id="@+id/txt_timeto"
         android:layout_above="@+id/meet_location"
         android:layout_alignParentStart="true" />
@@ -90,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_below="@+id/time_from"
         android:layout_toEndOf="@+id/txt_timefrom" />
@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         android:text="Location: "
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:id="@+id/txt_location"
         android:layout_alignTop="@+id/meet_location"
         android:layout_alignParentStart="true" />
@@ -110,7 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_alignEnd="@+id/meet_summ"
         android:layout_below="@+id/time_to"
@@ -145,6 +145,6 @@
         android:background="@color/bg_main"
         android:layout_alignTop="@+id/driveButton"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="25dp" />
+        android:layout_marginEnd="20dp" />
 
 </RelativeLayout>
