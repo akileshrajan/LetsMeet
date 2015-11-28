@@ -31,7 +31,9 @@ public class AppConfig {
 
     // Adding below URL's as a part of Google cloud messaging
     //Server put final event response
+
     public static String URL_REGGCM = "http://omega.uta.edu/~axr1662/storeGCMDetails.php";
+    public static String URL_ACCEPTDECLINEMEET = "http://omega.uta.edu/~axr1662/acceptDecline.php";
 
     //used to share GCM regId with application server - using php app server
     public static String URL_SENDMESS = "http://omega.uta.edu/~axr1662/sendMessageGcm.php";
