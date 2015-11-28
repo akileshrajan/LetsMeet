@@ -16,6 +16,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.utase1.letsmeet.R;
 import com.utase1.letsmeet.app.AppConfig;
 import com.utase1.letsmeet.app.AppController;
+import com.utase1.letsmeet.helper.SQLiteHandler;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +30,7 @@ public class AcceptDeclineMeeting extends AppCompatActivity {
     String meetingTime="";
     String meetingLocation="";
     private ProgressDialog pDialog;
+    private String email="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +49,10 @@ public class AcceptDeclineMeeting extends AppCompatActivity {
         meetName.setText(meetingName);
         date.setText(meetingDate);
         location.setText(meetingLocation);
-        time.setText(meetingTime);;
+        time.setText(meetingTime);
+        SQLiteHandler db = new SQLiteHandler(getApplicationContext());
+        HashMap<String, String> user = db.getUserDetails();
+        email = user.get("email");
 
 
     }
@@ -56,13 +61,13 @@ public class AcceptDeclineMeeting extends AppCompatActivity {
         
         String status = "1";
 
-        userRespondEvent(meetingName, meetingTime, meetingDate,"android2015@gmail.com", status,meetingLocation);
+        userRespondEvent(meetingName, meetingTime, meetingDate,email, status,meetingLocation);
         Intent i = new Intent(getApplicationContext(), MySchedule.class);
         startActivity(i);
     }
 
 
-    private void userRespondEvent(final String meetingName, final String meetingTime, final String meetingDate, String email, final String status, final String location)
+    private void userRespondEvent(final String meetingName, final String meetingTime, final String meetingDate, final String email, final String status, final String location)
     {
 
         // Tag used to cancel the request
@@ -114,11 +119,8 @@ public class AcceptDeclineMeeting extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
-               // params.put("emailId", "android2015@gmail.com");
+                params.put("emailId", email);
                 params.put("meetName", meetingName);
-                //params.put("meetingTimeFrom",meetingTime);
-                //params.put("meetingTimeTo",meetingTime+1);
-                //params.put("meetingDate",meetingDate);
                 params.put("status",status);
 
                 return params;

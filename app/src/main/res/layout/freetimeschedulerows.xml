@@ -59,6 +59,7 @@
             android:id="@+id/participants"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             android:layout_below="@+id/meetingDate"
             android:layout_centerHorizontal="false"
             android:textSize="@dimen/year" />
@@ -67,14 +68,17 @@
 
     <Button
         android:id="@+id/btnSch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/meetingLocation"
-        android:layout_alignParentBottom="true"
+        android:layout_width="100sp"
+        android:layout_height="35sp"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+
         android:gravity="center_vertical"
         android:padding="5pt"
         android:text="Schedule"
-        android:background="@drawable/buttonround" />
+        android:background="@drawable/buttonround"
+        android:layout_above="@+id/meetingTime"
+        android:layout_alignEnd="@+id/meetingLocation" />
 
 
 </RelativeLayout>

@@ -33,7 +33,7 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             android:id="@+id/txt_name"
-            android:layout_below="@+id/meetDetails"
+
             android:layout_alignParentStart="true" />
         <TextView
             android:id="@+id/meetName"

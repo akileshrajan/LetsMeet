@@ -36,15 +36,16 @@
         android:layout_centerHorizontal="true" />
     <!--Schedule Button-->
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100sp"
+        android:layout_height="35sp"
+        android:textColor="@android:color/white"
         android:id="@+id/btnSch"
         android:text="Schedule"
         android:padding="5pt"
         android:gravity="center_vertical"
         android:background="@drawable/buttonround"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/meetingLocation" />
+        android:layout_above="@+id/meetingDate"
+        android:layout_alignParentEnd="true" />
 
 
 

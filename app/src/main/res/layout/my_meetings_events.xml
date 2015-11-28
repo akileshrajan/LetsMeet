@@ -1,34 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg_register">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:background="@color/bg_register"
+    android:weightSum="1">
+
 
     <TextView
         android:id="@+id/meetDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+       android:layout_gravity="center"
         android:text="Meeting Details"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="25dp"
         android:textStyle="bold" />
+    <RelativeLayout
+        android:layout_width="360dp"
+        android:layout_height="200dp"
+        android:background="@color/bg_register"
+        android:layout_weight="1.94">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name: "
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:id="@+id/txt_name"
-        android:layout_below="@+id/meetDetails"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
     <TextView
         android:id="@+id/meetName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_above="@+id/txt_date"
         android:layout_toEndOf="@+id/txt_timefrom"/>
@@ -38,17 +50,18 @@
         android:layout_height="wrap_content"
         android:text="Date: "
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:id="@+id/txt_date"
         android:layout_below="@+id/txt_name"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="9dp" />
 
     <TextView
         android:id="@+id/meetDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_alignTop="@+id/txt_date"
         android:layout_alignStart="@+id/meetName"
@@ -59,17 +72,18 @@
         android:layout_height="wrap_content"
         android:text="Time From: "
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:id="@+id/txt_timefrom"
-        android:layout_below="@+id/meetDate"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/txt_date"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp" />
 
     <TextView
         android:id="@+id/meetTimeFrom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:layout_alignTop="@+id/txt_timefrom"
         android:layout_toEndOf="@+id/txt_timefrom"
@@ -80,9 +94,9 @@
         android:layout_height="wrap_content"
         android:text="Time To: "
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:id="@+id/txt_timeto"
-        android:layout_above="@+id/meetLocation"
+        android:layout_alignTop="@+id/meetTimeTo"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -90,19 +104,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:textStyle="bold"
+        android:layout_marginTop="24dp"
         android:layout_below="@+id/meetTimeFrom"
-        android:layout_toEndOf="@+id/txt_timefrom"/>
+        android:layout_alignStart="@+id/meetTimeFrom" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Location: "
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:id="@+id/txt_location"
-        android:layout_alignTop="@+id/meetLocation"
+        android:layout_alignBaseline="@+id/meetLocation"
+        android:layout_alignBottom="@+id/meetLocation"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -110,29 +126,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:layout_alignEnd="@+id/meetDetails"
-        android:layout_below="@+id/meetTimeTo"
-        android:layout_toEndOf="@+id/txt_timefrom" />
 
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/txt_timefrom" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="155dp">
     <Button
         android:id="@+id/btnPrevious"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:textColor="@android:color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="95dp"
-        android:background="@color/bg_main"
+        android:background="@drawable/buttonround"
         android:text="Previous" />
     <Button
         android:id="@+id/btnProceed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/bg_main"
+        android:layout_width="100sp"
+        android:layout_height="50sp"
+        android:textColor="@android:color/white"
+        android:background="@drawable/buttonround"
         android:text="Proceed"
         android:layout_alignTop="@+id/btnPrevious"
         android:layout_alignParentEnd="true" />
+    </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>

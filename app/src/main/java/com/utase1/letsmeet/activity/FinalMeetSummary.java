@@ -65,8 +65,22 @@ public class FinalMeetSummary extends AppCompatActivity {
 
         _meetName.setText(getIntent().getExtras().getString("meet_name"));
         _meetDate.setText(getIntent().getExtras().getString("meet_date"));
-        _meetTimefrom.setText(getIntent().getExtras().getString("time_from"));
-        _meetTimeto.setText(getIntent().getExtras().getString("time_to"));
+        if(Integer.parseInt(getIntent().getExtras().getString("time_from"))>12)
+        {
+            _meetTimefrom.setText(getIntent().getExtras().getString("time_from")+"PM");
+        }
+        else
+        {
+            _meetTimefrom.setText(getIntent().getExtras().getString("time_from")+"AM");
+        }
+        if(Integer.parseInt(getIntent().getExtras().getString("time_to"))>12)
+        {
+            _meetTimeto.setText(getIntent().getExtras().getString("time_to")+"PM");
+        }
+        else
+        {
+            _meetTimeto.setText(getIntent().getExtras().getString("time_to")+"AM");
+        }
         _meetLocation.setText(getIntent().getExtras().getString("meet_location"));
         //_meet_participants.setText(getIntent().getExtras().getString("participants"));
 
