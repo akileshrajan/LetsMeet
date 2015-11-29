@@ -19,9 +19,9 @@ public class MeetingCreated extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_created);
+        setContentView(R.layout.activity_meeting_created);
 
-        Button btnMyschedule = (Button) findViewById(R.id.btnLinkToscheduleScreen_event);
+        Button btnMyschedule = (Button) findViewById(R.id.btnLinkToscheduleScreen_meet);
 
         //Link to My Schedule Page -- Need to change to My Schedule
         btnMyschedule.setOnClickListener(new View.OnClickListener() {
