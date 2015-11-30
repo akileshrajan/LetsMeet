@@ -130,7 +130,8 @@
         android:textStyle="bold"
 
         android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/txt_timefrom" />
+        android:layout_toEndOf="@+id/meetTimeTo"
+        android:layout_marginStart="26dp" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"

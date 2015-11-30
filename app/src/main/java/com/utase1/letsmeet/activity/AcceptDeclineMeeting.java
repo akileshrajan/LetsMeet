@@ -147,7 +147,7 @@ public class AcceptDeclineMeeting extends AppCompatActivity {
 
         String status="0";
 
-        userRespondEvent(meetingName, meetingTime, meetingDate,"android2015@gmail.com", status,meetingLocation);
+        userRespondEvent(meetingName, meetingTime, meetingDate,email, status,meetingLocation);
         Intent i = new Intent(getApplicationContext(), MySchedule.class);
         startActivity(i);
     }
