@@ -216,7 +216,7 @@ public class FreeTimeSchedulerInitiator  extends ArrayAdapter {
             message.append(meetingName + ";");
             message.append(meetingDate + ";");
             message.append(scheduleArrayList.get(position).getTimeSlot() + ";");
-            message.append(scheduleArrayList.get(position).getMeetingid());
+           // message.append(scheduleArrayList.get(position).getMeetingid()+ ";");
 
             if (!meetingLocation.isEmpty()) {
                 message.append(meetingLocation);
