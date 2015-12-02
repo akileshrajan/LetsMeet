@@ -22,10 +22,10 @@
         android:id="@+id/meetingLocation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title"
-        android:layout_marginTop="1dip"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/rating" />
+        android:textSize="@dimen/rating"
+        android:layout_below="@+id/title"
+        android:layout_toStartOf="@+id/btnView" />
 
     <!-- Meeting Date -->
     <TextView
@@ -44,8 +44,8 @@
         android:text="View"
         android:padding="5pt"
         android:background="@drawable/buttonround"
-        android:layout_alignParentBottom="true"
         android:textColor="@android:color/black"
-        android:layout_alignEnd="@+id/meetingLocation" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/meetingDate" />
 
 </RelativeLayout>
