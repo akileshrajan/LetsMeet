@@ -67,10 +67,10 @@ public class RespondEvent extends AppCompatActivity {
         txtemail = user.get("email");
 
 
-        _eventName=(TextView)findViewById(R.id.textView3);
-        _eventDate=(TextView)findViewById(R.id.textView4);
-        _eventTime=(TextView)findViewById(R.id.textView5);
-        _eventLocation=(TextView)findViewById(R.id.textView6);
+        _eventName=(TextView)findViewById(R.id.event_name);
+        _eventDate=(TextView)findViewById(R.id.event_date);
+        _eventTime=(TextView)findViewById(R.id.event_time);
+        _eventLocation=(TextView)findViewById(R.id.event_location);
 
         btnAccept = (Button) findViewById(R.id.accept_event);
         btnDecline = (Button) findViewById(R.id.decline_event);

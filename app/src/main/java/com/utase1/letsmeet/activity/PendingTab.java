@@ -92,7 +92,7 @@ public class PendingTab extends Fragment {
             for (int i = 0; i < mListAdapter.getCount(); i++) {
                 View listItem = mListAdapter.getView(i, null, mListView);
                 listItem.measure(desiredWidth, MeasureSpec.UNSPECIFIED);
-                height += listItem.getMeasuredHeight();
+                height += listItem.getMeasuredHeight() +35;
             }
             ViewGroup.LayoutParams params = mListView.getLayoutParams();
             params.height = height + (mListView.getDividerHeight() * (mListAdapter.getCount() - 1));
