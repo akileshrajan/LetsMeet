@@ -45,7 +45,7 @@
         android:padding="5pt"
         android:background="@drawable/buttonround"
         android:layout_alignParentBottom="true"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:layout_alignEnd="@+id/meetingLocation" />
 
 </RelativeLayout>
