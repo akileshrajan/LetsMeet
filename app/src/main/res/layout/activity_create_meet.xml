@@ -147,7 +147,7 @@
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:hint="Participants"
-        android:inputType="textMultiLine"
+        android:inputType="textEmailAddress"
         android:paddingStart="5dp"
         android:id="@+id/participants"
         android:textColor="#ffffff"

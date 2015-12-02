@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.util.Log;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -66,11 +68,28 @@ public class InitiatorSchedule extends Fragment {
         asyncRequestObject = new AsyncDataClass();
         asyncRequestObject.execute(AppConfig.URL_GETMEETING, email);
 
-        ListView lstView = (ListView) getActivity().findViewById(R.id.lstSchedule);
-
-
         return v;
 
+    }
+    public static class ListUtils {
+        public static void setDynamicHeight(ListView mListView) {
+            ListAdapter mListAdapter = mListView.getAdapter();
+            if (mListAdapter == null) {
+                // when adapter is null
+                return;
+            }
+            int height = 0;
+            int desiredWidth = View.MeasureSpec.makeMeasureSpec(mListView.getWidth(), View.MeasureSpec.UNSPECIFIED);
+            for (int i = 0; i < mListAdapter.getCount(); i++) {
+                View listItem = mListAdapter.getView(i, null, mListView);
+                listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+                height += listItem.getMeasuredHeight();
+            }
+            ViewGroup.LayoutParams params = mListView.getLayoutParams();
+            params.height = height + (mListView.getDividerHeight() * (mListAdapter.getCount() - 1));
+            mListView.setLayoutParams(params);
+            mListView.requestLayout();
+        }
     }
 
 
@@ -177,17 +196,13 @@ public class InitiatorSchedule extends Fragment {
                 CustomScheduleAdapter cta = new CustomScheduleAdapter(getActivity(), R.layout.myschedule_rows,lst);
                 vSchedule.setAdapter(cta);
                 cta.notifyDataSetChanged();
-
-
-
-                //MyCustomBaseAdapter adpt = new MyCustomBaseAdapter(getApplicationContext(),R.layout.events_view,lst);
-                //mListView.setAdapter(adpt);
-
-
-                //Intent intent = new Intent(getBaseContext(), GameEvents.class);
-                //startActivity(intent);
-                //asyncRequestObject.cancel(true);
-
+                ListAdapter schAdapter = vSchedule.getAdapter();
+                int schedule_len = schAdapter.getCount();
+                if (schedule_len > 0){
+                    TextView tv_schedule = (TextView) getActivity().findViewById(R.id.schEmpty);
+                    //tv_meet.setVisibility(View.INVISIBLE);
+                    tv_schedule.setAlpha(0.0f);
+                }
             }
 
 

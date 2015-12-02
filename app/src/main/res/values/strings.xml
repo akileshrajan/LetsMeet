@@ -28,6 +28,7 @@
     <string name="title_activity_googlemap">Map</string>
     <string name="title_activity_maps">Map</string>
     <string name="noItem">No Items Found</string>
+    <string name="noSch">No Meeting to Schedule</string>
 
 
 </resources>

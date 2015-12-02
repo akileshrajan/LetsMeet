@@ -96,7 +96,7 @@ public class CustomScheduleAdapter extends ArrayAdapter {
 
 
     }
-    @Override
+   /** @Override
     public int getViewTypeCount() {
 
         return getCount();
@@ -107,7 +107,7 @@ public class CustomScheduleAdapter extends ArrayAdapter {
 
         return position;
     }
-
+**/
 }
 
 
