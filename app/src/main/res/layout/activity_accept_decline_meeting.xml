@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -10,11 +10,7 @@
     android:weightSum="1">
 
 
-    <RelativeLayout
-        android:layout_width="360dp"
-        android:layout_height="200dp"
-        android:background="@color/bg_register"
-        android:layout_weight="1.56">
+
 
 
 
@@ -25,10 +21,7 @@
             android:id="@+id/textView8"
             android:textSize="20dp"
             android:textColor="@color/white"
-            android:layout_alignTop="@+id/textView3"
-            android:layout_alignParentStart="true"
-            android:layout_toStartOf="@+id/textView3"
-            android:layout_above="@+id/textView9" />
+            android:layout_below="@+id/meetSum" />
 
         <TextView
             android:layout_width="100dp"
@@ -37,7 +30,7 @@
             android:textSize="20dp"
             android:textColor="@color/white"
             android:id="@+id/textView9"
-            android:layout_above="@+id/textView10"
+            android:layout_below="@+id/textView8"
             android:layout_alignParentStart="true" />
 
         <TextView
@@ -57,10 +50,9 @@
             android:textSize="20dp"
             android:textColor="@color/white"
             android:id="@+id/textView11"
-            android:layout_alignParentBottom="true"
 
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="46dp" />
+            android:layout_below="@+id/timeid"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="fill_parent"
@@ -79,10 +71,9 @@
             android:layout_height="wrap_content"
             android:text="time"
             android:id="@+id/timeid"
-            android:layout_toEndOf="@+id/textView10"
-            android:layout_alignBottom="@+id/textView10"
             android:textSize="20dp"
             android:textColor="@android:color/white"
+            android:layout_below="@+id/meetdateid"
             android:layout_alignStart="@+id/meetdateid" />
 
         <TextView
@@ -90,12 +81,11 @@
             android:layout_height="wrap_content"
             android:text="location"
             android:id="@+id/locationid"
-            android:layout_toEndOf="@+id/textView10"
             android:textSize="20dp"
             android:textColor="@android:color/white"
+            android:layout_below="@+id/timeid"
             android:layout_alignStart="@+id/timeid"
-            android:layout_alignParentBottom="true"
-            android:layout_alignTop="@+id/textView11" />
+            android:layout_alignEnd="@+id/timeid" />
 
         <TextView
             android:layout_width="match_parent"
@@ -109,22 +99,18 @@
             android:layout_above="@+id/meetdateid"
             android:layout_toEndOf="@+id/textView8" />
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Meeting Summary"
-            android:id="@+id/meetSum"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/textView9"
-            android:layout_alignParentStart="true"
-            android:textSize="25dp"
-            android:textColor="@android:color/white"
-            android:textAlignment="center" />
+    <TextView
+        android:id="@+id/meetSum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Meeting Summary"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="250dp">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -149,4 +135,3 @@
 
 
 
-</LinearLayout>

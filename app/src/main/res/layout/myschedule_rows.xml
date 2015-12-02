@@ -20,10 +20,10 @@
         android:id="@+id/meetingLocation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title"
-        android:layout_marginTop="1dip"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/rating" />
+        android:textSize="@dimen/rating"
+        android:layout_below="@+id/title"
+        android:layout_toStartOf="@+id/btnSch" />
 
     <!-- Meeting Date -->
     <TextView
@@ -38,14 +38,14 @@
     <Button
         android:layout_width="100sp"
         android:layout_height="35sp"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:id="@+id/btnSch"
         android:text="Schedule"
         android:padding="5pt"
         android:gravity="center_vertical"
         android:background="@drawable/buttonround"
-        android:layout_above="@+id/meetingDate"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/meetingDate" />
 
 
 
