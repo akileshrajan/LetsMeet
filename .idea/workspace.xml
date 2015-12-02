@@ -10,51 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78e22f5b-b5d9-49fa-aaa9-9fb9aab802f9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/splash.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/SplashScreen.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/gradient_background.xml" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\Parse_1_9_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\appcompat_v7_23_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\bolts_android_1_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\design_23_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\google_api_client_1_20_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\google_api_client_android_1_20_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\google_api_services_calendar_v3_rev125_1_20_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\google_http_client_1_20_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\google_http_client_android_1_20_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\google_http_client_jackson2_1_20_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\google_oauth_client_1_20_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\guava_jdk5_13_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\jackson_core_2_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\jsr305_1_3_9.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\library_aar_1_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\multidex_1_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\play_services_base_8_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\play_services_basement_8_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\play_services_drive_8_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\play_services_gcm_8_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\play_services_location_8_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\play_services_maps_8_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\support_annotations_23_0_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\akilesh\Documents\GitHub\LetsMeet\.idea\libraries\support_v4_23_0_1.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/helper/CustomScheduleAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/helper/CustomScheduleAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/InitiatorSchedule.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/InitiatorSchedule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/accepted_rows.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/accepted_rows.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_event.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_event.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_meet.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_create_meet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_final_event_summary.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_final_event_summary.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_final_meet_summary.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_final_meet_summary.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_initiator_schedule.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_initiator_schedule.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/my_meetings_events.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/my_meetings_events.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/splash.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/splash.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LetsMeet.iws" />
@@ -2038,6 +1994,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="78e22f5b-b5d9-49fa-aaa9-9fb9aab802f9" name="Default" comment="" />
@@ -2045,6 +2004,13 @@
       <option name="number" value="Default" />
       <updated>1448945524836</updated>
     </task>
+    <task id="LOCAL-00001" summary="MInor Design changes. Added Splash Screen(temp image), app icon.">
+      <created>1449026821668</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1449026821668</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2082,6 +2048,14 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
