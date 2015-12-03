@@ -191,7 +191,9 @@ public class FreeTimeSchedulerInitiator  extends ArrayAdapter {
             for(int i=0;i<scheduleArrayList.get(position).getParticipantDetails().size();i++)
             {
                 users.append(scheduleArrayList.get(position).getParticipantDetails().get(i).getParticipantName() + ",");
-                createFinalMeet(meetingName, meetingDate, scheduleArrayList.get(position).getTimeSlot(), meetingLocation, scheduleArrayList.get(position).getMeetingid(), parent, scheduleArrayList.get(position).getParticipantDetails().get(i).getParticipantName());
+                Integer time_to = scheduleArrayList.get(position).getTimeSlot();
+                time_to += 1;
+                createFinalMeet(meetingName, meetingDate, Integer.toString(scheduleArrayList.get(position).getTimeSlot()),Integer.toString(time_to), meetingLocation, scheduleArrayList.get(position).getMeetingid(), parent, scheduleArrayList.get(position).getParticipantDetails().get(i).getParticipantName());
             }
 
 
@@ -216,6 +218,9 @@ public class FreeTimeSchedulerInitiator  extends ArrayAdapter {
             message.append(meetingName + ";");
             message.append(meetingDate + ";");
             message.append(scheduleArrayList.get(position).getTimeSlot() + ";");
+            Integer time_to = scheduleArrayList.get(position).getTimeSlot();
+            time_to += 1;
+            message.append(Integer.toString(time_to) + ";");
            // message.append(scheduleArrayList.get(position).getMeetingid()+ ";");
 
             if (!meetingLocation.isEmpty()) {
@@ -247,7 +252,7 @@ public class FreeTimeSchedulerInitiator  extends ArrayAdapter {
         }
 
     }
-    private void createFinalMeet(final String meetingName, final String meetingDate, final int timeSlot, final String meetingLocation, final String meetingid, final ViewGroup parent, final String userLists) {
+    private void createFinalMeet(final String meetingName, final String meetingDate, final String timeSlot,final String timeSlotTo, final String meetingLocation, final String meetingid, final ViewGroup parent, final String userLists) {
 
         // Tag used to cancel the request
         String tag_string_req = "req_createmeet";
@@ -304,8 +309,8 @@ public class FreeTimeSchedulerInitiator  extends ArrayAdapter {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("meetName", meetingName);
                 params.put("meetDate", meetingDate);
-                params.put("meetTimeFrom", timeSlot+"");
-                params.put("meetTimeTo", timeSlot+1+"");
+                params.put("meetTimeFrom", timeSlot);
+                params.put("meetTimeTo", timeSlotTo);
                 params.put("meetLocation", meetingLocation);
                 params.put("meetId",meetingid);
                 params.put("Participants", userLists);
