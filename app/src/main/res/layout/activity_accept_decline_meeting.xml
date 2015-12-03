@@ -10,7 +10,16 @@
     android:weightSum="1">
 
 
-
+    <TextView
+        android:id="@+id/meetSum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Meeting Summary"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal" />
 
 
 
@@ -22,6 +31,17 @@
             android:textSize="20dp"
             android:textColor="@color/white"
             android:layout_below="@+id/meetSum" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meet Name"
+        android:id="@+id/meetNameId"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+
+        android:layout_marginStart="32dp"
+        android:layout_above="@+id/meetdateid"
+        android:layout_toEndOf="@+id/textView8" />
 
         <TextView
             android:layout_width="100dp"
@@ -47,7 +67,7 @@
             android:layout_alignParentStart="true" />
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Date"
             android:id="@+id/meetdateid"
@@ -68,7 +88,7 @@
         android:layout_alignParentStart="true" />
 
         <TextView
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="time from"
             android:id="@+id/timeid"
@@ -105,28 +125,9 @@
             android:layout_below="@+id/timeid_to"
             android:layout_alignStart="@+id/timeid_to" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Meet Name"
-            android:id="@+id/meetNameId"
-            android:textSize="20dp"
-            android:textColor="@android:color/white"
 
-            android:layout_marginStart="32dp"
-            android:layout_above="@+id/meetdateid"
-            android:layout_toEndOf="@+id/textView8" />
 
-    <TextView
-        android:id="@+id/meetSum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="Meeting Summary"
-        android:textColor="@color/white"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal" />
+
 
 
         <Button
