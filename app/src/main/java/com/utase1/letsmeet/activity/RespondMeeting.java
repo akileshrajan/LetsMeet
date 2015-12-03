@@ -182,14 +182,14 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
         if(hour<12)
         {
             int  minute = c.get(Calendar.MINUTE);
-            this.txtTimefrom.setText(hour + ":" + minute + "am");
-            this.txtTimeto.setText(hour + ":" + minute + "pm");
+            this.txtTimefrom.setText(hour + ":" + minute);
+            this.txtTimeto.setText(hour + ":" + minute);
         }
         else
         {
             int  minute = c.get(Calendar.MINUTE);
-            this.txtTimefrom.setText(hour + ":" + minute + "am");
-            this.txtTimeto.setText(hour + ":" + minute + "pm");
+            this.txtTimefrom.setText(hour + ":" + minute);
+            this.txtTimeto.setText(hour + ":" + minute);
         }
 
     }

@@ -23,12 +23,7 @@
   <component name="ChangeListManager">
     <list default="true" id="78e22f5b-b5d9-49fa-aaa9-9fb9aab802f9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/FreeTimeSchedulerInitiator.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/FreeTimeSchedulerInitiator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/MyGcmListenerService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/MyGcmListenerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_accept_decline_meeting.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_accept_decline_meeting.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/RespondMeeting.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/RespondMeeting.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="LetsMeet.iws" />
@@ -87,13 +82,62 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyGcmListenerService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MyGcmListenerService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/MyGcmListenerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49019608">
-              <caret line="65" column="64" selection-start-line="65" selection-start-column="64" selection-end-line="65" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="59" column="65" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="65" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_respond_meeting.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_respond_meeting.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.30487806">
+              <caret line="128" column="4" selection-start-line="216" selection-start-column="8" selection-end-line="216" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RespondMeeting.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/RespondMeeting.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.81960785">
+              <caret line="193" column="0" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_free_time_display.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_free_time_display.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.973684">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_scheduling_initiator.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_scheduling_initiator.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.263158">
+              <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -121,16 +165,6 @@
                 <element signature="e#699#700#0" expanded="true" />
                 <element signature="e#721#722#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AcceptedTab.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/AcceptedTab.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="54" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="60" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1709,7 +1743,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_meet.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/CreateEvent.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/CreateMeeting.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/RespondMeeting.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/freetimeschedulerows.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/MyMeetingsEvents.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_create_event.xml" />
@@ -1718,6 +1751,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_accept_decline_meeting.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/FreeTimeSchedulerInitiator.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/MyGcmListenerService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_respond_meeting.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/RespondMeeting.java" />
       </list>
     </option>
   </component>
@@ -2106,7 +2141,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449108108380</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="changed Splash image">
+      <created>1449116850449</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1449116850449</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2187,14 +2228,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/helper/CustomScheduleAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.039872408">
-          <caret line="60" column="86" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.263158">
@@ -2519,17 +2552,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_scheduling_initiator.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56418383">
-          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/helper/CustomAcceptedAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2900232">
@@ -2539,17 +2561,6 @@
             <element signature="e#2705#2706#0" expanded="false" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_respond_meeting.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.27226463">
-          <caret line="208" column="4" selection-start-line="216" selection-start-column="8" selection-end-line="216" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_event_created.xml">
@@ -2616,30 +2627,6 @@
       </provider>
       <provider editor-type-id="android-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_accept_decline_meeting.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25866666">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding>
-            <element signature="e#223#258#0" expanded="true" />
-            <element signature="e#284#319#0" expanded="true" />
-            <element signature="e#343#376#0" expanded="true" />
-            <element signature="e#403#436#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/RespondMeeting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33200794">
-          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/helper/ScheduleTime.java">
@@ -2714,10 +2701,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_scheduling_initiator.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.263158">
+          <caret line="25" column="15" selection-start-line="25" selection-start-column="15" selection-end-line="25" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_free_time_display.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.973684">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_accept_decline_meeting.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/MyGcmListenerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49019608">
-          <caret line="65" column="64" selection-start-line="65" selection-start-column="64" selection-end-line="65" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="65" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_respond_meeting.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.30487806">
+          <caret line="128" column="4" selection-start-line="216" selection-start-column="8" selection-end-line="216" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/utase1/letsmeet/activity/RespondMeeting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.81960785">
+          <caret line="193" column="0" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
           <folding />
         </state>
       </provider>
