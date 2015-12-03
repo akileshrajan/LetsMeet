@@ -28,6 +28,7 @@ public class AcceptDeclineMeeting extends AppCompatActivity {
     String meetingName="";
     String meetingDate="";
     String meetingTime="";
+    String meetingTimeTo ="";
     String meetingLocation="";
     private ProgressDialog pDialog;
     private String email="";
@@ -40,16 +41,19 @@ public class AcceptDeclineMeeting extends AppCompatActivity {
          meetingName = getIntent().getExtras().getString("MeetName");
          meetingDate = getIntent().getExtras().getString("MeetDate");
          meetingTime = getIntent().getExtras().getString("MeetTime");
+        meetingTimeTo = getIntent().getExtras().getString("MeetTimeTo");
          meetingLocation = getIntent().getExtras().getString("MeetLocation");
         TextView meetName= (TextView)findViewById(R.id.meetNameId);
         TextView date= (TextView)findViewById(R.id.meetdateid);
         TextView time= (TextView)findViewById(R.id.timeid);
+        TextView time_to = (TextView)findViewById(R.id.timeid_to);
        TextView location= (TextView)findViewById(R.id.locationid);
 
         meetName.setText(meetingName);
         date.setText(meetingDate);
         location.setText(meetingLocation);
         time.setText(meetingTime);
+        time_to.setText(meetingTimeTo);
         SQLiteHandler db = new SQLiteHandler(getApplicationContext());
         HashMap<String, String> user = db.getUserDetails();
         email = user.get("email");

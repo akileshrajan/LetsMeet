@@ -145,7 +145,7 @@ public class RespondMeeting extends AppCompatActivity  implements NumberPicker.O
                 String toTime = txtTimeto.getText().toString().trim();
                 try
                 {
-                    java.text.DateFormat formatter  = new SimpleDateFormat("hh:mm a");
+                    java.text.DateFormat formatter  = new SimpleDateFormat("hh:mm");
                     Date  date =  (Date)formatter.parse(fromTime);
                     fromTime=date.getHours()+"";
                     System.out.print("fromtime"+fromTime);
