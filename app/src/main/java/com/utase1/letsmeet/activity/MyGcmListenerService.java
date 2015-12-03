@@ -62,6 +62,7 @@ public class MyGcmListenerService extends GcmListenerService {
             pupInt.putExtra("MeetName", meet_event_Details[1]);
             pupInt.putExtra("MeetDate", meet_event_Details[2]);
             pupInt.putExtra("MeetTime", meet_event_Details[3]);
+            pupInt.putExtra("MeetTimeTo", meet_event_Details[3]+1);
             pupInt.putExtra("MeetLocation", meet_event_Details[4]);
 
             pendingIntent = PendingIntent.getActivity(this, 0,

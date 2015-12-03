@@ -21,64 +21,54 @@
         android:id="@+id/meetingLocation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/title"
-        android:layout_marginTop="1dip"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/rating" />
+        android:textSize="@dimen/rating"
+        android:layout_below="@+id/title"
+        android:layout_toStartOf="@+id/btnSch" />
 
     <!-- Meeting Date -->
     <TextView
         android:id="@+id/meetingDate"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/meetingLocation"
         android:textColor="@android:color/black"
-        android:layout_centerHorizontal="true"
-        android:textSize="@dimen/year" />
-    <!-- Meeting Date -->
+        android:textSize="@dimen/year"
+        android:layout_below="@+id/meetingLocation"
+        android:layout_toStartOf="@+id/btnSch" />
+    <!-- Meeting Time -->
     <TextView
         android:id="@+id/meetingTime"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/meetingDate"
         android:textColor="@android:color/black"
-        android:layout_centerHorizontal="true"
-        android:textSize="@dimen/year" />
+        android:textSize="@dimen/year"
+        android:layout_below="@+id/meetingDate"
+        android:layout_toStartOf="@+id/btnSch" />
 
-    <!--Schedule Button-->
-    <ScrollView
-        android:id="@+id/participantsScroll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/meetingTime"
-        android:layout_centerHorizontal="false"
-        >
-
-        <TextView
-
+    <!--Meeting Location-->
+    <TextView
             android:id="@+id/participants"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:layout_below="@+id/meetingDate"
+            android:layout_below="@+id/meetingTime"
             android:layout_centerHorizontal="false"
             android:textSize="@dimen/year" />
+    <!--Schedule Button-->
 
-    </ScrollView>
 
     <Button
         android:id="@+id/btnSch"
         android:layout_width="100sp"
         android:layout_height="35sp"
         android:singleLine="true"
-        android:textColor="@android:color/white"
-
+        android:textColor="@android:color/black"
         android:gravity="center_vertical"
         android:padding="5pt"
         android:text="Schedule"
         android:background="@drawable/buttonround"
-        android:layout_above="@+id/meetingTime"
-        android:layout_alignEnd="@+id/meetingLocation" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

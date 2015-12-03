@@ -102,17 +102,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="88dp"
-        android:background="@color/bg_main"
         android:text="Previous"
         android:layout_alignParentBottom="true"
-        android:layout_toStartOf="@+id/event_location" />
+        android:layout_toStartOf="@+id/event_location"
+        android:background="@drawable/buttonround"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Take a picture"
         android:id="@+id/eventDriveButton"
-        android:background="@color/bg_main"
+        android:background="@drawable/buttonround"
         android:layout_alignTop="@+id/button_prev"
         android:layout_centerHorizontal="true" />
 
@@ -121,9 +121,8 @@
         android:layout_height="wrap_content"
         android:text="Location"
         android:id="@+id/eventMapButton"
-        android:background="@color/bg_main"
+        android:background="@drawable/buttonround"
         android:layout_alignTop="@+id/eventDriveButton"
-        android:layout_toEndOf="@+id/eventDriveButton"
-        android:layout_marginStart="32dp" />
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

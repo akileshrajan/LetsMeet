@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -110,6 +112,27 @@ public class MyMeetingsEvents extends AppCompatActivity {
 
 
     }
+    public static class ListUtils {
+        public static void setDynamicHeight(ListView mListView) {
+            ListAdapter mListAdapter = mListView.getAdapter();
+            if (mListAdapter == null) {
+                // when adapter is null
+                return;
+            }
+            int height = 0;
+            int desiredWidth = View.MeasureSpec.makeMeasureSpec(mListView.getWidth(), View.MeasureSpec.UNSPECIFIED);
+            for (int i = 0; i < mListAdapter.getCount(); i++) {
+                View listItem = mListAdapter.getView(i, null, mListView);
+                listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+                height += listItem.getMeasuredHeight() + 35;
+            }
+            ViewGroup.LayoutParams params = mListView.getLayoutParams();
+            params.height = height + (mListView.getDividerHeight() * (mListAdapter.getCount() - 1));
+            mListView.setLayoutParams(params);
+            mListView.requestLayout();
+        }
+    }
+
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
@@ -206,16 +229,11 @@ public class MyMeetingsEvents extends AppCompatActivity {
             freeTimeList = (ListView) findViewById(R.id.list_freetime);
             FreeTimeSchedulerInitiator freeTimeSchedulerInitiator=new FreeTimeSchedulerInitiator(MyMeetingsEvents.this,R.layout.freetimeschedulerows,  commonFreeTime,meetNameValue,meetDateValue,meetLocationValue);
             freeTimeList.setAdapter(freeTimeSchedulerInitiator);
-            freeTimeSchedulerInitiator.notifyDataSetChanged();
-         /*   Intent intent = new Intent(MyMeetingsEvents.this, GenerateFreeCommonTime.class);
-            Bundle bundleObject = new Bundle();
-            bundleObject.putSerializable("finalParticipants", new DataWrapper(commonFreeTime));
-            intent.putExtras(bundleObject);
-            MyMeetingsEvents.this.startActivity(intent);*/
-            //intent.putExtra("finalParticipants", new DataWrapper(finalParticipants));
-            //   intent.putExtra("finalParticipants", finalParticipants);
 
-          //  finish();
+            freeTimeSchedulerInitiator.notifyDataSetChanged();
+            ListUtils.setDynamicHeight(freeTimeList);
+
+
         }
 
 
